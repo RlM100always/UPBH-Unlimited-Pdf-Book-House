@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="New Book"
+        android:icon="@drawable/baseline_fiber_new_24"
+        android:id="@+id/menu_new_book_id"/>
+
+    <item android:title="Category"
+        android:icon="@drawable/baseline_category_24"
+        android:id="@+id/menu_category_id"/>
+    <item android:title="BookMark"
+        android:icon="@drawable/baseline_bookmark_added_24"
+        android:id="@+id/menu_bookmark_id"/>
+
+</menu>

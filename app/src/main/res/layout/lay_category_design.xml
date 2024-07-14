@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:padding="4dp"
+    android:foreground="@drawable/fore_back"
+    android:background="@drawable/edit_text_background"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.imageview.ShapeableImageView
+        app:strokeColor="#605F5F"
+        app:strokeWidth="0.4dp"
+        android:background="@drawable/loading"
+        android:id="@+id/lay_category_image_id"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/loading"
+        app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="2dp"
+                android:drawablePadding="1dp"
+                android:maxLines="3"
+                android:id="@+id/lay_category_name_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <TextView
+            android:paddingBottom="2dp"
+            android:paddingTop="2dp"
+            android:paddingRight="6dp"
+            android:paddingLeft="6dp"
+            android:backgroundTint="@color/c1"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="2dp"
+            android:maxLines="1"
+            android:id="@+id/lay_category_total_book_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="50 Books"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="7dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
+            app:strokeColor="#827D7D"
+            app:strokeWidth="0.3dp"
+            android:background="@drawable/loading"
+            android:id="@+id/book_image_id"
+            android:layout_width="115dp"
+            android:layout_height="140dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/loading"
+            app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+
+        <LinearLayout
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="7dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    android:gravity="center"
+                    android:backgroundTint="@color/c1"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="2dp"
+                    android:id="@+id/pdf_book_id"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:text="PDF"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_marginTop="2dp"
+                    android:visibility="gone"
+                    android:id="@+id/delete_id"
+                    android:gravity="center"
+                    android:backgroundTint="@color/c4"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginBottom="2dp"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:text="Delete"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:maxLines="2"
+                android:id="@+id/book_category_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Programming"
+                android:textColor="#FF33A3"
+                android:textSize="17dp"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:maxLines="3"
+                android:id="@+id/book_name_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh Name of a Country .Where it is located"
+                android:textColor="?attr/colorSecondary"
+                android:textSize="14dp"
+                />
+
+            <TextView
+                android:id="@+id/read_button_id"
+                android:gravity="center"
+                android:foreground="@drawable/fore_back"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="@color/c2"
+                android:background="@drawable/edit_text_background"
+                android:layout_marginLeft="3dp"
+                android:layout_marginBottom="2dp"
+                android:maxLines="1"
+                android:layout_width="100dp"
+                android:layout_height="27dp"
+                android:text="READ BOOKS"
+                android:textColor="?attr/colorSurface"
+                android:textSize="12dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

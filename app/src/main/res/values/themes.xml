@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+
+    <color name="colorSelected">@color/c1</color>
+    <color name="colorUnselected">@color/black</color>
+
+    <style name="Base.Theme.EducationalBooks" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/white</item>
+        <!-- Secondary branding color. -->
+        <item name="colorSecondary">@color/black</item>
+        <!-- Surface color -->
+        <item name="colorSurface">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+
+
+    </style>
+
+    <style name="CornerCut">
+        <item name="cornerSize">15%</item>
+
+    </style>
+
+    <style name="Theme.EducationalBooks" parent="Base.Theme.EducationalBooks" />
+</resources>

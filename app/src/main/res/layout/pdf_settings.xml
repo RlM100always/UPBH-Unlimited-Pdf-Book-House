@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="12dp"
+    android:gravity="center"
+    android:background="?attr/colorSurface"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_margin="10dp"
+                android:src="@drawable/settings_pic"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"/>
+            <TextView
+                android:textColor="?attr/colorSecondary"
+                android:text="Note : Screen Rotation Available Here"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:weightSum="2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="8dp"
+                        android:text="Design"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+                    <RadioGroup
+
+                        android:id="@+id/group_radio_view"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:checked="true"
+                            android:buttonTint="@color/radio_button_selector"
+                            android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/horizontal_id"
+                            android:text="Horizontal"
+                            android:textSize="13sp"/>
+
+                        <RadioButton
+                            android:buttonTint="@color/c2"
+                            android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/vertical_id"
+                            android:text="Vertical"
+                            android:textSize="13sp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18dp"
+                        android:textColor="?attr/colorSecondary"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:text="Mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioGroup
+                        android:outlineAmbientShadowColor="@color/c1"
+                        android:outlineSpotShadowColor="?attr/colorSecondary"
+                        android:id="@+id/radio_group_mode"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:buttonTint="@color/radio_button_selector"
+                            android:id="@+id/light_id"
+                            android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Light"
+                            android:textSize="13sp"/>
+
+                        <RadioButton
+                            android:buttonTintMode="src_atop"
+                            android:buttonTint="@color/radio_button_selector"
+                            android:id="@+id/night_id"
+                            android:textColor="?attr/colorSecondary"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Night"
+                            android:textSize="13sp"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginBottom="30dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:fontFamily="serif"
+
+                    android:layout_marginRight="30dp"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2.5"
+                    android:gravity="center"
+                    android:id="@+id/apply_settings_id"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/c1"
+                    android:background="@drawable/edit_text_background"
+                    android:textSize="16dp"
+                    android:foreground="@drawable/fore_back"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:text="Apply"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:fontFamily="serif"
+                    android:layout_marginLeft="30dp"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2.5"
+                    android:gravity="center"
+                    android:id="@+id/cancel_settings_id"
+                    android:textColor="@color/white"
+                    android:backgroundTint="@color/c4"
+                    android:background="@drawable/edit_text_background"
+                    android:textSize="16dp"
+                    android:foreground="@drawable/fore_back"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:text="Cancel"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

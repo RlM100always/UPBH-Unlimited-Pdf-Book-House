@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#1B1B1B</color>
+    <color name="white">#FFFFFF</color>//FF80AB
+    <color name="blackwhite">#FFFFFF</color>
+
+    <color name="threeitembackcolor">#2979FF</color>
+    <color name="c1">#54A101</color>
+    <color name="c2">#EBC606</color>
+    <color name="c3">#AA00FF</color>
+    <color name="c4">#FF0217</color>
+
+
+
+
+
+
+</resources>
