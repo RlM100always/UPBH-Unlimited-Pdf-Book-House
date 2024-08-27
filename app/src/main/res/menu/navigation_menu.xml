@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
     <item android:title="Request For Book"
         android:icon="@drawable/baseline_menu_book_24"
         android:id="@+id/menu_request_id"/>
+    <item android:title="Remove Ads"
+        android:icon="@drawable/baseline_ads_click_24"
+        android:id="@+id/menu_ads_free_id"/>
+
 
     <item android:title="Share and Care"
         android:icon="@drawable/baseline_share_24"
@@ -15,11 +21,17 @@
     <item android:title="Update App"
         android:icon="@drawable/baseline_update_24"
         android:id="@+id/menu_update_id"/>
+    <item android:title="Report A Bug"
+        android:icon="@drawable/baseline_bug_report_24"
+        android:id="@+id/menu_bug_id"/>
+
     <item android:title="Rate This App"
         android:icon="@drawable/baseline_star_rate_24"
         android:id="@+id/menu_rate_id"/>
     <item android:title="Privacy Policy"
         android:icon="@drawable/baseline_privacy_tip_24"
         android:id="@+id/menu_privacy_policy_id"/>
+
+
 
 </menu>

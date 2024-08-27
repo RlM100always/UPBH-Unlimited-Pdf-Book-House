@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="7dp"
+    android:background="?attr/colorSurface"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/exit"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+        <TextView
+            style="@style/MyToolbarTitleText"
+            android:layout_margin="5dp"
+            android:textColor="?attr/colorSecondary"
+            android:text="Exit Confirmation ???"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_margin="5dp"
+            android:textColor="?attr/colorSecondary"
+            android:text="Are you sure to exit this application at this moment!!"
+            android:textSize="17dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/exit_rate_us_id"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/threeitembackcolor"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:foreground="@drawable/fore_back"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Rate Us"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/exit_yes_id"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c1"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:foreground="@drawable/fore_back"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Yes"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/exit_no_id"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c4"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:foreground="@drawable/fore_back"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="No"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

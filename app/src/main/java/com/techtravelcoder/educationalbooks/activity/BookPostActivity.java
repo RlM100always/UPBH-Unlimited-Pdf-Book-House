@@ -4,12 +4,14 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +24,7 @@ import com.techtravelcoder.educationalbooks.adapter.BookAdapter;
 import com.techtravelcoder.educationalbooks.model.BookModel;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class BookPostActivity extends AppCompatActivity {
@@ -33,8 +36,10 @@ public class BookPostActivity extends AppCompatActivity {
     private ArrayList<BookModel> bookList;
     private BookAdapter bookPostAdapter;
     private ProgressBar progressBar;
-    private TextView textView,condition;
+    private TextView textView;
+    private Toolbar condition;
     private ImageView imageView;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +59,7 @@ public class BookPostActivity extends AppCompatActivity {
         textView=findViewById(R.id.book_text);
         imageView=findViewById(R.id.book_image);
         condition=findViewById(R.id.text_id);
+        linearLayout=findViewById(R.id.book_post_linearlayout);
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -68,12 +74,21 @@ public class BookPostActivity extends AppCompatActivity {
                 return true;
             }
         });
-
         //progressbar color
         progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
-            condition.setText(categoryName+" Book");
+        condition.setTitle(categoryName+"");
+        condition.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
-            retriveBookDetailsData();
+
+
+
+
+        retriveBookDetailsData();
     }
 
     public void searchList(String query) {
@@ -89,6 +104,11 @@ public class BookPostActivity extends AppCompatActivity {
             }
         }
 
+        if(filteredList.size()==0){
+            linearLayout.setVisibility(View.VISIBLE);
+        }else {
+            linearLayout.setVisibility(View.GONE);
+        }
         // Update your UI with the filtered list
         bookPostAdapter.searchLists((ArrayList<BookModel>) filteredList);
         bookPostAdapter .notifyDataSetChanged();
@@ -115,13 +135,12 @@ public class BookPostActivity extends AppCompatActivity {
                             if(bookPostModel.getBookCategoryKey().equals(bCataKey)){
                                 bookList.add(0,bookPostModel);
                             }
-
-
                         }
 
                     }
 
                 }
+                Collections.shuffle(bookList);
                 bookPostAdapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.GONE);
                 if(bookList.size()==0){
@@ -129,7 +148,6 @@ public class BookPostActivity extends AppCompatActivity {
                     imageView.setVisibility(View.VISIBLE);
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

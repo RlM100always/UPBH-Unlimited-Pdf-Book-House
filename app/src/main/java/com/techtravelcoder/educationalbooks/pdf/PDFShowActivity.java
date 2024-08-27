@@ -23,6 +23,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
@@ -54,7 +55,7 @@ public class PDFShowActivity extends AppCompatActivity {
 
     private PDFView pdfView;
     private DatabaseHelper databaseHelper;
-    private TextView title;
+    private Toolbar title;
     private  String fileName;
     private static final String PREFS_NAME = "PDFPrefs";
     private static final String KEY_PAGE_NUMBER = "pageNumber";
@@ -73,12 +74,20 @@ public class PDFShowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pdfshow);
 
         pdfView=findViewById(R.id.pdfView1);
-        title=findViewById(R.id.pdf_show_title_id);
+        title=findViewById(R.id.toolbar_pdf);
         settings=findViewById(R.id.settings_button_id);
         withoutBookMark=findViewById(R.id.without_bookmark_button_id);
         share=findViewById(R.id.share_button_id);
         pdfsettings=findViewById(R.id.all_pdf_settings_ll);
         noInternet=findViewById(R.id.no_internet_connect_ll);
+
+        title.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
 
 
@@ -95,7 +104,7 @@ public class PDFShowActivity extends AppCompatActivity {
         if(FirebaseAuth.getInstance().getUid()!=null){
 
 
-            title.setText(""+bName);
+            title.setTitle(""+bName);
 
             FirebaseDatabase.getInstance().getReference("Book Details").child(fName).child("bookmark")
                     .child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {

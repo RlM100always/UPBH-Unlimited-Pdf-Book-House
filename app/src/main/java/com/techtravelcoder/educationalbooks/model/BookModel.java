@@ -8,9 +8,51 @@ public class BookModel {
     String bookCategoryKey;
     String bookCategoryName;
     String bookPostDate;
+    String bookMbSize,bookPageNo,bookCategoryType,bookPriceType,bookLanguageType;
+
 
     public BookModel(){
 
+    }
+
+    public String getBookMbSize() {
+        return bookMbSize;
+    }
+
+    public void setBookMbSize(String bookMbSize) {
+        this.bookMbSize = bookMbSize;
+    }
+
+    public String getBookPageNo() {
+        return bookPageNo;
+    }
+
+    public void setBookPageNo(String bookPageNo) {
+        this.bookPageNo = bookPageNo;
+    }
+
+    public String getBookCategoryType() {
+        return bookCategoryType;
+    }
+
+    public void setBookCategoryType(String bookCategoryType) {
+        this.bookCategoryType = bookCategoryType;
+    }
+
+    public String getBookPriceType() {
+        return bookPriceType;
+    }
+
+    public void setBookPriceType(String bookPriceType) {
+        this.bookPriceType = bookPriceType;
+    }
+
+    public String getBookLanguageType() {
+        return bookLanguageType;
+    }
+
+    public void setBookLanguageType(String bookLanguageType) {
+        this.bookLanguageType = bookLanguageType;
     }
 
     public String getBookPostDate() {
@@ -67,5 +109,13 @@ public class BookModel {
 
     public void setBookCategoryName(String bookCategoryName) {
         this.bookCategoryName = bookCategoryName;
+    }
+
+    @Override
+    public String toString() {
+        return "BookModel{" +
+                "bookName='" + bookName + '\'' +
+                ", bookCategoryName='" + bookCategoryName + '\'' +
+                '}';
     }
 }

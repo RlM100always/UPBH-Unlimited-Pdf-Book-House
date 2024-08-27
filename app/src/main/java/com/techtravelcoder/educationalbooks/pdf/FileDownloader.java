@@ -44,8 +44,8 @@ public class FileDownloader {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog.setTitle("Processing Books !!");
-            progressDialog.setMessage("Processing Books takes some times.");
+            progressDialog.setTitle("Downloading Books !!");
+            progressDialog.setMessage("First time downloading books takes some times.");
             progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
             progressDialog.show();
             progressDialog.setCancelable(false);

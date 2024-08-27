@@ -17,12 +17,12 @@
         android:background="@drawable/searchbar_background"
         android:elevation="5dp"
         app:iconifiedByDefault="false"
-        app:queryHint="Search new book"
+        app:queryHint="Search bookmark book"
         tools:ignore="MissingConstraints" />
 
     <LinearLayout
-        android:layout_marginTop="100dp"
-        android:id="@+id/bookmark_book"
+        android:layout_marginTop="25dp"
+        android:id="@+id/bookmark_book_visible"
         android:visibility="gone"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -30,10 +30,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:src="@drawable/nothing"
+            android:src="@drawable/no_search_item"
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
         <TextView
+            style="@style/MyToolbarTitleText"
             android:gravity="center"
             android:layout_marginTop="2dp"
             android:layout_marginRight="15dp"
@@ -41,7 +42,7 @@
             android:maxLines="3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="No New Books Available Current Moments"
+            android:text="No Bookmark books found"
             android:textColor="?attr/colorSecondary"
             android:textSize="20sp"
             android:textStyle="bold" />

@@ -16,11 +16,15 @@
         android:background="?attr/colorSurface">
 
         <androidx.appcompat.widget.Toolbar
+
             android:id="@+id/toolbar"
+            app:titleTextAppearance="@style/MyToolbarTitleText"
+            app:title="Unlimited Book House"
+            app:titleTextColor="?attr/colorSecondary"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:background="?attr/colorPrimary"
->
+            android:layout_height="48dp"
+            android:background="?attr/colorPrimary">
+
         </androidx.appcompat.widget.Toolbar>
 
         <FrameLayout
@@ -45,7 +49,7 @@
                 android:id="@+id/google_login"
                 android:layout_width="260dp"
                 android:layout_height="40dp"
-                android:backgroundTint="@color/c1"
+                android:backgroundTint="@color/threeitembackcolor"
                 android:layout_below="@id/toolbar"
                 android:layout_centerInParent="true"
                 android:background="@drawable/edit_text_background"
@@ -61,6 +65,7 @@
                     android:src="@drawable/google" />
 
                 <TextView
+                    style="@style/MyToolbarTitleText"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="15dp"
@@ -73,6 +78,7 @@
         </LinearLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:labelVisibilityMode="labeled"
             android:id="@+id/bottom_nav_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -7,71 +7,153 @@
     android:orientation="vertical"
     android:background="?attr/colorSurface"
     tools:context=".fragmentactivity.NewBooksFragment">
-
-    <androidx.appcompat.widget.SearchView
-        android:layout_marginTop="5dp"
-        android:id="@+id/book_categoyr_searhc"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/searchbar_background"
-        android:elevation="5dp"
-        app:iconifiedByDefault="false"
-        app:queryHint="Search new book"
-        tools:ignore="MissingConstraints" />
-
     <LinearLayout
-
-        android:id="@+id/no_new_book"
-        android:visibility="gone"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_marginRight="7dp"
+        android:layout_marginLeft="7dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:src="@drawable/nothing"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+        android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/last_7_day_id"
             android:gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:maxLines="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No New Books Available Current Moments"
+
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            style="@style/MyToolbarTitleText"
+            android:layout_gravity="center"
             android:textColor="?attr/colorSecondary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="13dp"
+            android:text="Last 10 Days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/today_id"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:layout_gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="13dp"
+            android:text="Today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/yesterday_id"
+            android:gravity="center"
+            android:layout_weight="1"
+
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:paddingRight="8dp"
+            android:paddingLeft="8dp"
+            android:background="@drawable/edit_text_background"
+            android:layout_gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="13dp"
+            android:text="Yesterday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
 
     </LinearLayout>
-    <ProgressBar
 
-        android:layout_marginTop="200dp"
-        android:layout_gravity="center"
-        android:id="@+id/progressBar_new_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="2dp"
         android:id="@+id/swipe_refresh_layout_new_books"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginBottom="80dp">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/new_books_recyclerview_id"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="85dp">
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_id"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <androidx.cardview.widget.CardView
+                    android:visibility="gone"
+                    android:id="@+id/pimage_card_id"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardElevation="3dp"
+                    android:layout_margin="11dp"
+                    app:cardCornerRadius="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:visibility="visible"
+                        android:id="@+id/image_slider"
+                        android:background="@drawable/loading"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        app:iss_auto_cycle="true"
+                        app:iss_period="2000"
+                        app:iss_delay="2000"
+                        app:iss_text_align="CENTER"/>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:id="@+id/no_new_book"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:src="@drawable/nothing"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:maxLines="3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No Books Found"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ProgressBar
+                    android:layout_marginTop="140dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/progressBar_new_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    android:visibility="gone" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/new_books_recyclerview_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
 </LinearLayout>

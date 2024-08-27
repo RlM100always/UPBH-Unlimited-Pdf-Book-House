@@ -13,6 +13,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -25,6 +26,7 @@ import com.techtravelcoder.educationalbooks.model.BookCategoryModel;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 
 public class BlankCategoryFragment extends Fragment {
@@ -35,6 +37,7 @@ public class BlankCategoryFragment extends Fragment {
     private BookCategoryAdapter bookCategoryAdapter;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ProgressBar progressBar;
+    private LinearLayout layout;
     public BlankCategoryFragment() {
         // Required empty public constructor
     }
@@ -47,7 +50,9 @@ public class BlankCategoryFragment extends Fragment {
 
         View view =inflater.inflate(R.layout.fragment_blank_category, container, false);
         recyclerView=view.findViewById(R.id.new_category_recyclerview_id);
+        searchView=view.findViewById(R.id.book_categoyr_searhc);
         progressBar=view.findViewById(R.id.progressBar_category);
+        layout=view.findViewById(R.id.category_no_item);
         progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
 
         swipeRefreshLayout=view.findViewById(R.id.swipe_refresh_layout_category);
@@ -58,6 +63,18 @@ public class BlankCategoryFragment extends Fragment {
             public void onRefresh() {
                 retriveBookCategoryDetailsData();
 
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
             }
         });
         return view;
@@ -99,5 +116,31 @@ public class BlankCategoryFragment extends Fragment {
         swipeRefreshLayout.setRefreshing(false);
 
     }
+
+    private void searchList(String query) {
+        List<BookCategoryModel> filteredList = new ArrayList<>();
+        String queryWithoutSpaces = query.replaceAll("\\s+", "").toLowerCase(); // Remove spaces from query
+
+        for (BookCategoryModel obj : bookCategoryList) {
+            String objStringWithoutSpaces = obj.toString().replaceAll("\\s+", "").toLowerCase(); // Remove spaces from object
+
+            if (objStringWithoutSpaces.contains(queryWithoutSpaces)) {
+                filteredList.add(obj);
+            }
+        }
+        if(filteredList.size()==0){
+            layout.setVisibility(View.VISIBLE);
+        }else {
+            layout.setVisibility(View.GONE);
+
+        }
+
+        // Update your UI with the filtered list
+        bookCategoryAdapter.searchLists((ArrayList<BookCategoryModel>) filteredList);
+        bookCategoryAdapter.notifyDataSetChanged();
+
+
+    }
+
 
 }

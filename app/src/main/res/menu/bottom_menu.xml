@@ -3,11 +3,14 @@
     <item android:title="New Book"
         android:icon="@drawable/baseline_fiber_new_24"
         android:id="@+id/menu_new_book_id"/>
+    <item android:title="Home"
+        android:icon="@drawable/baseline_home_24"
+        android:id="@+id/menu_all_book_id"/>
 
     <item android:title="Category"
         android:icon="@drawable/baseline_category_24"
         android:id="@+id/menu_category_id"/>
-    <item android:title="BookMark"
+    <item android:title="Bookmark"
         android:icon="@drawable/baseline_bookmark_added_24"
         android:id="@+id/menu_bookmark_id"/>
 

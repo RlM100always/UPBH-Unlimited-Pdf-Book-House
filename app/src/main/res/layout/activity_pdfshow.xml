@@ -9,24 +9,25 @@
     android:background="?attr/colorSurface"
     tools:context="com.techtravelcoder.educationalbooks.pdf.PDFShowActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        app:title="Book"
+        app:titleTextAppearance="@style/MyToolbarTitleText"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        app:titleTextColor="?attr/colorSecondary"
+        app:navigationIcon="@drawable/baseline_arrow_back_24"
+        android:id="@+id/toolbar_pdf"
+        android:background="?attr/colorSurface"
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:maxLines="3"
-            android:layout_width="match_parent"
-            android:id="@+id/pdf_show_title_id"
-            android:layout_height="wrap_content"
-            android:text="Book Name  "
-            android:textColor="?attr/colorSecondary"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+
+
+    </androidx.appcompat.widget.Toolbar>
 
 
 
     <LinearLayout
+        android:layout_marginTop="10dp"
         android:id="@+id/all_pdf_settings_ll"
         android:padding="5dp"
         android:layout_marginBottom="6dp"

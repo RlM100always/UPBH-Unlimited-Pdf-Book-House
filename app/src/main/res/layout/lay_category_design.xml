@@ -6,15 +6,17 @@
     android:foreground="@drawable/fore_back"
     android:background="@drawable/edit_text_background"
     android:layout_margin="10dp"
+    android:gravity="center_vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <com.google.android.material.imageview.ShapeableImageView
+        android:layout_gravity="center"
         app:strokeColor="#605F5F"
         app:strokeWidth="0.4dp"
         android:background="@drawable/loading"
         android:id="@+id/lay_category_image_id"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
+        android:layout_width="81dp"
+        android:layout_height="79dp"
         android:scaleType="fitXY"
         android:src="@drawable/loading"
         app:shapeAppearanceOverlay="@style/CornerCut"/>
@@ -23,25 +25,20 @@
     <LinearLayout
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginLeft="6dp"
+            android:layout_marginBottom="2dp"
+            android:drawablePadding="1dp"
+            android:maxLines="3"
+            android:id="@+id/lay_category_name_id"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_marginLeft="6dp"
-                android:layout_marginBottom="2dp"
-                android:drawablePadding="1dp"
-                android:maxLines="3"
-                android:id="@+id/lay_category_name_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bangladesh"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="Bangladesh"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="16dp"
+            android:textStyle="bold" />
         <TextView
             android:paddingBottom="2dp"
             android:paddingTop="2dp"

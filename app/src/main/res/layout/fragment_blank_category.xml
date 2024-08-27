@@ -20,6 +20,35 @@
         app:iconifiedByDefault="false"
         app:queryHint="Search book category"
         tools:ignore="MissingConstraints" />
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:id="@+id/category_no_item"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/no_search_item"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+        <TextView
+            style="@style/MyToolbarTitleText"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:maxLines="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Search Books Found"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="20sp"
+           />
+
+    </LinearLayout>
+
     <ProgressBar
 
         android:layout_marginTop="200dp"

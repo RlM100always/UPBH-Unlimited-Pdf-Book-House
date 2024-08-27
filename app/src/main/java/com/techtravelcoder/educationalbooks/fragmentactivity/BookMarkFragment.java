@@ -4,6 +4,7 @@ import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +25,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.educationalbooks.R;
 import com.techtravelcoder.educationalbooks.adapter.BookAdapter;
+import com.techtravelcoder.educationalbooks.model.BookCategoryModel;
 import com.techtravelcoder.educationalbooks.model.BookModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class BookMarkFragment extends Fragment {
@@ -37,6 +40,7 @@ public class BookMarkFragment extends Fragment {
     private ProgressBar progressBar;
     private LinearLayout linearLayout;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private androidx.appcompat.widget.SearchView searchView;
 
     public BookMarkFragment() {
         // Required empty public constructor
@@ -51,8 +55,9 @@ public class BookMarkFragment extends Fragment {
 
         recyclerView=view.findViewById(R.id.bookmark_recyclerview_id);
         progressBar=view.findViewById(R.id.progressBar_bookmark);
-        linearLayout=view.findViewById(R.id.bookmark_book);
+        linearLayout=view.findViewById(R.id.bookmark_book_visible);
         swipeRefreshLayout=view.findViewById(R.id.swipe_refresh_lay_bookmark);
+        searchView=view.findViewById(R.id.bookmark_searchview_id);
 
         progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
         progressBar.setVisibility(View.VISIBLE);
@@ -62,15 +67,47 @@ public class BookMarkFragment extends Fragment {
                 retrivebookMark();
             }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
         retrivebookMark();
-
-
-
         return view;
     }
 
+
+    private void searchList(String query) {
+        List<BookModel> filteredList = new ArrayList<>();
+        String queryWithoutSpaces = query.replaceAll("\\s+", "").toLowerCase(); // Remove spaces from query
+
+        for (BookModel obj : bookList) {
+            String objStringWithoutSpaces = obj.toString().replaceAll("\\s+", "").toLowerCase(); // Remove spaces from object
+
+            if (objStringWithoutSpaces.contains(queryWithoutSpaces)) {
+                filteredList.add(obj);
+            }
+        }
+
+        if(filteredList.size()==0){
+            linearLayout.setVisibility(View.VISIBLE);
+        }else {
+            linearLayout.setVisibility(View.GONE);
+        }
+        // Update your UI with the filtered list
+        bookPostAdapter.searchLists((ArrayList<BookModel>) filteredList);
+        bookPostAdapter.notifyDataSetChanged();
+    }
+
     private void retrivebookMark(){
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         bookList=new ArrayList<>();
         bookPostAdapter=new BookAdapter(getContext(),bookList,3);
         bookPostAdapter.setViewTypeToShow(3);
@@ -86,7 +123,16 @@ public class BookMarkFragment extends Fragment {
 
                             bookPostModel = dataSnapshot.getValue(BookModel.class);
                             if (bookPostModel != null) {
+
                                 checkFavorite(bookPostModel);
+                            }else {
+                                if(bookList.size()==0){
+                                    linearLayout.setVisibility(View.VISIBLE);
+
+                                }else {
+                                    linearLayout.setVisibility(View.GONE);
+
+                                }
                             }
                         }
 
@@ -96,10 +142,13 @@ public class BookMarkFragment extends Fragment {
 
 
                     }
+                    else {
 
+                        Toast.makeText(getContext(), "No", Toast.LENGTH_SHORT).show();
 
+                        linearLayout.setVisibility(View.VISIBLE);
 
-
+                    }
                 }
 
                 @Override
@@ -117,8 +166,6 @@ public class BookMarkFragment extends Fragment {
 
         }
     }
-
-
     private void checkFavorite(BookModel bookPostModel) {
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             FirebaseDatabase.getInstance().getReference("Book Details").child(bookPostModel.getBookKey())
@@ -147,6 +194,20 @@ public class BookMarkFragment extends Fragment {
 
                                 bookPostAdapter.notifyDataSetChanged();
 
+
+                            }else {
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if(bookList.size()==0){
+                                            linearLayout.setVisibility(View.VISIBLE);
+
+                                        }else {
+                                            linearLayout.setVisibility(View.GONE);
+
+                                        }
+                                    }
+                                },1000);
 
                             }
 

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:background="?attr/colorSurface"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:src="@drawable/star"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"/>
+        <TextView
+            android:layout_gravity="center"
+            style="@style/MyToolbarTitleText"
+            android:layout_margin="8dp"
+            android:textColor="?attr/colorSecondary"
+            android:text="Give 5 Star Rating  and Motivate Us"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+             />
+
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/rating_submit_id"
+                android:layout_marginRight="30dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c1"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:foreground="@drawable/fore_back"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Submit"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/rating_cancel_id"
+                android:layout_marginLeft="30dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c4"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:foreground="@drawable/fore_back"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Cancel"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
