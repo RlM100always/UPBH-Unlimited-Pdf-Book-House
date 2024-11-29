@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="12dp"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/ed_book_post_name_id"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="Enter book name"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back"
+            android:maxLines="100000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <EditText
+            android:id="@+id/ed_book_post_image_link_id"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="Enter book iamge link"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back"
+            android:maxLines="1000000000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <EditText
+            android:id="@+id/ed_book_post_drive_url_id"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="Enter google drive url"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back"
+            android:maxLines="100000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/mb_size_id"
+                android:layout_weight="1"
+                android:textColorHint="#676565"
+                android:textColor="@color/black"
+                android:paddingLeft="11dp"
+                android:hint="mb size"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/back"
+                android:inputType="numberDecimal"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"/>
+            <EditText
+                android:id="@+id/page_no_id"
+                android:layout_weight="1"
+                android:textColorHint="#676565"
+                android:textColor="@color/black"
+                android:paddingLeft="11dp"
+                android:hint="page no"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/back"
+                android:inputType="number"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"/>
+
+        </LinearLayout>
+        <EditText
+            android:id="@+id/key_word_id_book"
+            android:textColorHint="#676565"
+            android:textColor="@color/black"
+            android:paddingLeft="11dp"
+            android:hint="key word"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/back"
+            android:maxLines="100000000"
+            android:inputType="textMultiLine"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"/>
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/book_type_rg_id"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rb_book_id"
+                        android:text="Book"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_notes_id"
+                        android:text="Notes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_guide_notes_id"
+                        android:text="Guide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+
+                </RadioGroup>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:id="@+id/price_type_rg_id"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rb_free_id"
+                        android:text="Free"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioButton
+                        android:id="@+id/rb_premium_id"
+                        android:text="Premium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RadioGroup
+                android:id="@+id/book_language_rg"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:id="@+id/english_id"
+                    android:text="English"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/hindi_id"
+                    android:text="Hindi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/bengali_id"
+                    android:text="Bengali"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/arabic_id"
+                    android:text="Arabic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/chinese_id"
+                    android:text="Chinese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/spanish_id"
+                    android:text="Spanish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/french_id"
+                    android:text="French"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/russian_id"
+                    android:text="Russian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/urdu_id"
+                    android:text="Urdu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/german_id"
+
+                    android:text="German"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/japanese_id"
+                    android:text="Japanese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/indonesian_id"
+                    android:text="Indonesian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <RadioButton
+                    android:id="@+id/portuguese_id"
+                    android:text="Portuguese"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RadioGroup>
+
+        </HorizontalScrollView>
+        <LinearLayout
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:fontFamily="serif"
+                android:layout_marginRight="30dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:id="@+id/book_post_add_id"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c1"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Apply"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:fontFamily="serif"
+                android:layout_marginLeft="30dp"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2.5"
+                android:gravity="center"
+                android:id="@+id/book_post_cancel_settings_id"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/c4"
+                android:background="@drawable/edit_text_background"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:text="Cancel"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

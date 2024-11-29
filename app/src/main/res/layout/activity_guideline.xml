@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/back"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.Guideline">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <include
+            layout="@layout/custom_toolbar" />
+
+
+        <LinearLayout
+            android:id="@+id/id1"
+            android:foreground="@drawable/fore_back"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/round"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/back_color1"
+                android:text="01"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/icon_color"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:text="Storage Permission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@color/subback"
+                    android:textSize="14.5dp"
+                    android:text="Read more..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id2"
+            android:foreground="@drawable/fore_back"
+
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/round"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/back_color1"
+                android:text="02"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/icon_color"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:text="Small File Download Guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@color/subback"
+                    android:textSize="14.5dp"
+                    android:text="Read more..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id3"
+            android:foreground="@drawable/fore_back"
+
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/round"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/back_color1"
+                android:text="03"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/icon_color"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:text="Large File Download Guide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@color/subback"
+                    android:textSize="14.5dp"
+                    android:text="Read more..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id4"
+            android:foreground="@drawable/fore_back"
+
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/round"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/back_color1"
+                android:text="04"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/icon_color"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:text="Clear Data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@color/subback"
+                    android:textSize="14.5dp"
+                    android:text="Read more..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/id5"
+            android:foreground="@drawable/fore_back"
+
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:background="@drawable/round"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="7dp"
+                android:paddingRight="7dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textColor="@color/back_color1"
+                android:text="05"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:textColor="@color/icon_color"
+                    android:textStyle="bold"
+                    android:textSize="17dp"
+                    android:text="Offline Problem Fix"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:textColor="@color/subback"
+                    android:textSize="14.5dp"
+                    android:text="Read more..."
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

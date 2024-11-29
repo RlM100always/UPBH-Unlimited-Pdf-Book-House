@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#919090">
+
+    <!-- Background shape with rounded corners -->
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <corners android:radius="17dp" />
+            <solid android:color="?attr/colorSecondary" />
+        </shape>
+    </item>
+
+    <!-- Ripple effect on top of the background shape -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="17dp" />
+            <solid android:color="@android:color/transparent" />
+        </shape>
+    </item>
+
+</ripple>

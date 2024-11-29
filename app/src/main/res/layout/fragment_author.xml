@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/back"
+    tools:context=".fragmentactivity.AuthorFragment">
+
+    <EditText
+        android:id="@+id/author_search_ed"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="10dp"
+        android:paddingLeft="15dp"
+
+        android:hint="Search author"
+
+        android:background="@drawable/searchbar_background"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+    <LinearLayout
+        android:layout_marginTop="25dp"
+        android:id="@+id/author_id_lin"
+        android:visibility="gone"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:src="@drawable/no_search_item"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+        <TextView
+            style="@style/MyToolbarTitleText"
+            android:gravity="center"
+            android:layout_marginTop="2dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:maxLines="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No author found"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+    <ProgressBar
+
+        android:layout_marginTop="200dp"
+        android:layout_gravity="center"
+        android:id="@+id/author_progressBar_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="gone" />
+
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/author_swipe_refreshs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="80dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/author_recycler_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</LinearLayout>

@@ -1,168 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:layout_gravity="center_horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:padding="6dp"
+    android:foreground="@drawable/fore_back"
+
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:background="@drawable/specific_back"
+    android:layout_marginBottom="8dp"
+
+    android:orientation="vertical"
+    >
     <LinearLayout
-        android:paddingTop="3dp"
-        android:paddingBottom="3dp"
-        android:foreground="@drawable/fore_back"
-        android:gravity="center"
-        android:orientation="vertical"
+
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
 
         <LinearLayout
-            android:padding="5dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="7dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <com.google.android.material.imageview.ShapeableImageView
-                    app:strokeColor="#827D7D"
-                    app:strokeWidth="0.3dp"
-                    android:background="@drawable/loading"
-                    android:id="@+id/book_image_id"
+                <TextView
+                    android:id="@+id/bookmark_serial_no_id"
+                    android:background="@drawable/round"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/back_color1"
+                    android:text="08"
                     android:layout_width="wrap_content"
-                    android:layout_height="175dp"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/loading"
-                    app:shapeAppearanceOverlay="@style/CornerCut"/>
-                <ImageView
-                    android:visibility="visible"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:id="@+id/delete_id"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:backgroundTint="@color/white"
-                    android:foreground="@drawable/fore_back"
-                    android:scaleType="center"
-                    android:src="@drawable/baseline_delete_24" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-            <TextView
-                android:textStyle="bold"
-                android:layout_marginLeft="3.5dp"
-                android:maxLines="1"
-                android:id="@+id/book_category_id"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Programming"
-                android:textColor="#FF33A3"
-                android:textSize="17dp"
-                />
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+
+                    android:id="@+id/book_category_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:drawablePadding="4dp"
+                    app:titleTextAppearance="@style/MyToolbarTitleText"
+
+                    android:gravity="center_vertical"
+                    android:maxLines="2"
+                    android:paddingLeft="7dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="7dp"
+                    android:paddingBottom="4dp"
+                    android:text="Programming"
+                    android:textColor="#F9058B"
+                    android:textSize="15dp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <LinearLayout
-                android:layout_marginRight="3dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="3dp"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/bookmark_page_id"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
-                    android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="100 Page"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_background"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                  android:text="100 Page"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/bookmark_mb_id"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="5dp"
-                    android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="10 Mb"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_background"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                    android:text="10 Mb"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginRight="3dp"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="3dp"
-                android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="3dp"
+                android:orientation="horizontal">
+
                 <TextView
 
-                    android:visibility="gone"
                     android:id="@+id/bookmark_type_id"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
-                    android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Book"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_background"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                    android:text="Book"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
                 <TextView
-                    android:visibility="gone"
                     android:id="@+id/bookmark_language_id"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="5dp"
-                    android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="English"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_text_background"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                   android:text="English"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
-
-
 
             <TextView
-                android:textStyle="bold"
-                android:layout_marginLeft="3.5dp"
-                android:maxLines="4"
                 android:id="@+id/book_name_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bangladesh Name of a Country .Where it is located"
-                android:textColor="?attr/colorSecondary"
+                android:layout_marginLeft="3.5dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:drawableLeft="@drawable/baseline_menu_book_24"
+                android:drawablePadding="4dp"
+                android:maxLines="2"
+                android:text="Made in Bangladesh "
+                android:textColor="@color/icon_color"
                 android:textSize="14dp"
-                />
-
-
-
-
+                android:textStyle="bold" />
 
         </LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:padding="1.5dp"
+                    android:id="@+id/book_image_id"
+                    android:layout_width="135dp"
+                    android:layout_height="165dp"
+                    android:background="@drawable/loading"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/loading"
+                    app:shapeAppearanceOverlay="@style/CornerCut"
+                    app:strokeColor="#827D7D"
+                 />
 
+            </LinearLayout>
 
+            <ImageView
+                android:id="@+id/delete_id"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:foreground="@drawable/fore_back"
+                android:scaleType="center"
+                android:src="@drawable/baseline_delete_24"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </LinearLayout>

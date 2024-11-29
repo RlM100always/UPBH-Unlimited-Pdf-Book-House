@@ -2,10 +2,10 @@ package com.techtravelcoder.educationalbooks.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -22,12 +22,11 @@ import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.techtravelcoder.educationalbooks.R;
-import com.techtravelcoder.educationalbooks.pdf.PDFShowActivity;
 
 import java.util.HashMap;
 
 public class GoogleSignInHelper {
-    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_SIGN_IN = 9005;
 
     private Activity mActivity;
     private FirebaseAuth mAuth;
@@ -59,7 +58,8 @@ public class GoogleSignInHelper {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 firebaseAuthWithGoogle(account.getIdToken(), account);
             } catch (ApiException e) {
-                Toast.makeText(mActivity, "Google sign in failed", Toast.LENGTH_SHORT).show();
+                //Log.e("GoogleSignIn", "signInResult:failed code=" + e.getStatusCode() + " message=" + e.getMessage());
+                Toast.makeText(mActivity, "Google sign in failed: " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -73,47 +73,52 @@ public class GoogleSignInHelper {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
-
                             // You can perform any other actions here after successful authentication
                             // For example, adding user information to Firebase
-                            addUserInfoToFirebase(user, account);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(mActivity, "Authentication failed", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-    }
-
-    private void addUserInfoToFirebase(FirebaseUser user, GoogleSignInAccount account) {
-        HashMap<String, Object> userInfo = new HashMap<>();
-        userInfo.put("userId", user.getUid());
-        userInfo.put("userMail", account.getEmail());
-        userInfo.put("userName", user.getDisplayName());
-
-        if (user.getPhotoUrl() != null) {
-            userInfo.put("userImage", user.getPhotoUrl().toString());
-        }
-
-        // Get a reference to the database
-        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("UserInfo").child(user.getUid());
-
-        // Set user information in the database
-        userRef.setValue(userInfo)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
                             Toast.makeText(mActivity, "Login Successful", Toast.LENGTH_SHORT).show();
 
-
-
                         } else {
-                            Toast.makeText(mActivity, "Failed ", Toast.LENGTH_SHORT).show();
+                            // If sign in fails, log the error and show a message to the user.
+                            Exception exception = task.getException();
+                            //Log.e("FirebaseAuth", "signInWithCredential:failure", exception);
+                            if (exception != null) {
+                                //Log.e("FirebaseAuth", "Error: " + exception.getMessage());
+                            }
+                            Toast.makeText(mActivity, "Authentication failed: " + (exception != null ? exception.getMessage() : "Unknown error"), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
     }
+
+//    private void addUserInfoToFirebase(FirebaseUser user, GoogleSignInAccount account) {
+//        HashMap<String, Object> userInfo = new HashMap<>();
+//        userInfo.put("userId", user.getUid());
+//        userInfo.put("userMail", account.getEmail());
+//        userInfo.put("userName", user.getDisplayName());
+//
+//        if (user.getPhotoUrl() != null) {
+//            userInfo.put("userImage", user.getPhotoUrl().toString());
+//        }
+//
+//        // Get a reference to the database
+//        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("UserInfo").child(user.getUid());
+//
+//        // Set user information in the database
+//        userRef.setValue(userInfo)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Toast.makeText(mActivity, "Login Successful", Toast.LENGTH_SHORT).show();
+//
+//
+//
+//                        } else {
+//                            Toast.makeText(mActivity, "Failed ", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                });
+//    }
 
 
 }

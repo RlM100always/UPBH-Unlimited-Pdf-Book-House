@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="back">#FC050721</color><!-- FC050721-->
+    <color name="back_upper">#AB202677</color> <!-- AB202677-->
+    <color name="allert_back_upper">#CC0A0D39</color>
+
+
+    <color name="cardMakerColor">#FFFFFF</color><!--F3F4F5 FC0C115B  AD00050A-->
+    <color name="WhitebuttonSide">#F8BDBDBD</color><!-- FC05093A-->
+    <color name="whiteTextColor1">#FF000000</color>
+    <color name="whiteTextSideColor1">#CF0369</color>
+    <color name="deepGreen">#34BB03</color>
+    <color name="red">#F90303</color>
+    <color name="deepYellow">#FFAB00</color>
+    <color name="FullWhite">#FFFFFF</color>
+
+</resources>

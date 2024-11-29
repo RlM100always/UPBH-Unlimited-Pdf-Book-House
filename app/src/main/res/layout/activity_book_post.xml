@@ -1,125 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:background="@color/back"
     tools:context=".activity.BookPostActivity">
-    <androidx.appcompat.widget.Toolbar
-        app:title="Book"
-        app:titleTextAppearance="@style/MyToolbarTitleText"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:titleTextColor="?attr/colorSecondary"
-        app:navigationIcon="@drawable/baseline_arrow_back_24"
-        android:id="@id/text_id"
-        android:background="?attr/colorSurface"
-        tools:ignore="MissingConstraints">
 
-    </androidx.appcompat.widget.Toolbar>
+    <!-- Custom Toolbar -->
+    <include
+        layout="@layout/custom_toolbar"
+        app:layout_constraintBottom_toTopOf="@+id/book_post_search" />
 
-
-
-    <androidx.appcompat.widget.SearchView
+    <!-- Search EditText -->
+    <EditText
         android:id="@+id/book_post_search"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
-        android:layout_gravity="center"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="10dp"
+        android:paddingLeft="15dp"
+        android:hint="Search book"
         android:background="@drawable/searchbar_background"
-        android:elevation="5dp"
-        app:iconifiedByDefault="false"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_id"
-        app:queryHint="Search book..." />
+        app:layout_constraintTop_toBottomOf="@+id/custom_toolbar" />
 
-    <LinearLayout
-        android:layout_marginTop="115dp"
-        android:id="@+id/book_post_linearlayout"
-        android:visibility="gone"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:src="@drawable/no_search_item"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"/>
-        <TextView
-            style="@style/MyToolbarTitleText"
-            android:gravity="center"
-            android:layout_marginTop="2dp"
-            android:layout_marginRight="15dp"
-            android:layout_marginLeft="15dp"
-            android:maxLines="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="No books found"
-            android:textColor="?attr/colorSecondary"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:paddingTop="8dp"
-        android:id="@+id/book_post_recyclerview_id"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/book_post_search"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-
-        android:id="@+id/book_image"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@drawable/nothing"
-        android:visibility="gone" />
-
-
+    <!-- First TextView (Sub Category Label) -->
     <TextView
-
-        android:id="@+id/book_text"
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_category_24"
+        android:visibility="gone"
+        android:textColor="@color/icon_color"
+        android:id="@+id/sub_cata_textview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
-        android:text="No Books Available"
-        android:textColor="?attr/colorSecondary"
-        android:textSize="22sp"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="7dp"
+        android:text="Sub Category -->"
+        android:textSize="16dp"
         android:textStyle="bold"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintBottom_toTopOf="@id/horizontal_recyclerview"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/book_image"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/book_post_search" />
 
+    <!-- Horizontal RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/horizontal_recyclerview"
+        android:paddingTop="3dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:paddingBottom="2.5dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/sub_cata_textview1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintHorizontal_bias="0.5" />
+
+    <TextView
+        android:drawablePadding="5dp"
+        android:drawableLeft="@drawable/baseline_view_list_24"
+        android:visibility="gone"
+        android:textColor="@color/icon_color"
+
+        android:layout_marginLeft="13dp"
+        android:id="@+id/sub_cata_textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="All Book List -->"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/horizontal_recyclerview"
+        app:layout_constraintBottom_toTopOf="@id/swipe_refresh_layout1"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <!-- SwipeRefreshLayout wrapping the main RecyclerView -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/sub_cata_textview2"
+        app:layout_constraintBottom_toTopOf="@id/banner_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/book_post_recyclerview_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Banner Ad LinearLayout - Background -->
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/c1"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Loading ProgressBar -->
     <ProgressBar
         android:id="@+id/book_progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@id/book_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- No Items Layout -->
+    <LinearLayout
+        android:id="@+id/book_post_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="280dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/no_search_item" />
+
+        <TextView
+            style="@style/MyToolbarTitleText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:gravity="center"
+            android:maxLines="3"
+            android:text="No books found"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

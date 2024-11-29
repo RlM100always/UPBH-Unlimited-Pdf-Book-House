@@ -5,7 +5,7 @@
     android:id="@+id/drawer_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
+    android:background="@color/back"
     android:fitsSystemWindows="true"
     tools:context=".activity.MainActivity"
     tools:openDrawer="start">
@@ -19,11 +19,18 @@
 
             android:id="@+id/toolbar"
             app:titleTextAppearance="@style/MyToolbarTitleText"
-            app:title="Unlimited Book House"
+            app:title="Unlimited Pdf Book"
             app:titleTextColor="?attr/colorSecondary"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="?attr/colorPrimary">
+            android:background="@color/back">
+            <Switch
+                android:id="@+id/switch_mode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:textColor="?attr/colorSecondary"
+                android:layout_marginEnd="16dp"/>
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -41,39 +48,6 @@
             android:orientation="vertical"
             android:layout_below="@id/toolbar"
             app:layout_constraintTop_toTopOf="parent" >
-            <LinearLayout
-                android:layout_marginBottom="7dp"
-                android:layout_marginTop="2dp"
-                android:layout_gravity="center"
-                android:visibility="visible"
-                android:id="@+id/google_login"
-                android:layout_width="260dp"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/threeitembackcolor"
-                android:layout_below="@id/toolbar"
-                android:layout_centerInParent="true"
-                android:background="@drawable/edit_text_background"
-                android:foreground="@drawable/fore_back"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="6dp">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/google" />
-
-                <TextView
-                    style="@style/MyToolbarTitleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="15dp"
-                    android:gravity="center"
-                    android:text="Login With Google"
-                    android:textColor="@color/white"
-                    android:textSize="20dp" />
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -83,7 +57,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="?attr/colorSurface"
+            android:background="@color/back"
             app:itemIconTint="@drawable/item_select"
             app:itemTextColor="@drawable/item_select"
             app:menu="@menu/bottom_menu" />
@@ -92,13 +66,15 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
+
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:visibility="gone"
+        android:visibility="visible"
         app:headerLayout="@layout/header"
         app:itemIconTint="?attr/colorSecondary"
         app:itemTextColor="?attr/colorSecondary"
         app:menu="@menu/navigation_menu" />
+
 
 </androidx.drawerlayout.widget.DrawerLayout>

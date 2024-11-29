@@ -10,6 +10,7 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,8 +18,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.cardview.widget.CardView;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
@@ -38,6 +41,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.techtravelcoder.educationalbooks.R;
 import com.techtravelcoder.educationalbooks.adapter.BookAdapter;
+import com.techtravelcoder.educationalbooks.ads.ADSSetUp;
 import com.techtravelcoder.educationalbooks.model.BookModel;
 
 import java.text.ParseException;
@@ -66,9 +70,9 @@ public class NewBooksFragment extends Fragment  {
     private CardView cardView;
     private NestedScrollView nestedScrollView;
     private TextView today,yesterday,last7day;
-    private int t1=0;
+    private int t1=1;
     private int y1=0;
-    private int l1=1;
+    private int l1=0;
 
 
 
@@ -101,9 +105,6 @@ public class NewBooksFragment extends Fragment  {
         nestedScrollView=view.findViewById(R.id.nested_scroll_id);
         progressBar=view.findViewById(R.id.progressBar_new_book);
         yesterday=view.findViewById(R.id.yesterday_id);
-        progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
-
-
 
 
 
@@ -123,14 +124,16 @@ public class NewBooksFragment extends Fragment  {
             bCataKey = getArguments().getString("key");
             categoryName = getArguments().getString("category");
         }
-        retriveNewbook();
 
 
-        last7day.setBackgroundResource(R.drawable.button_active);
-        last7day.setTextColor(getResources().getColor(R.color.colorSelected));
+
+        today.setBackgroundResource(R.drawable.button_active);
+        today.setTextColor(getResources().getColor(R.color.colorSelected));
         today.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ADSSetUp.adsType1(getContext());
+
                 recyclerView.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 today.setBackgroundResource(R.drawable.button_active);
@@ -138,6 +141,7 @@ public class NewBooksFragment extends Fragment  {
                 t1=1;
                 y1 =0;
                 l1=0;
+
 
                 yesterday.setBackgroundResource(R.drawable.edit_text_background);
                 if (nightModeFlags == Configuration.UI_MODE_NIGHT_YES) {
@@ -161,6 +165,8 @@ public class NewBooksFragment extends Fragment  {
         yesterday.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ADSSetUp.adsType1(getContext());
+
                 recyclerView.setVisibility(View.GONE);
                 progressBar.setVisibility(View.VISIBLE);
                 yesterday.setBackgroundResource(R.drawable.button_active);
@@ -191,6 +197,8 @@ public class NewBooksFragment extends Fragment  {
         last7day.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ADSSetUp.adsType1(getContext());
+
                 recyclerView.setVisibility(View.GONE);
                 last7day.setBackgroundResource(R.drawable.button_active);
                 last7day.setTextColor(getResources().getColor(R.color.colorSelected));
@@ -220,15 +228,10 @@ public class NewBooksFragment extends Fragment  {
         });
 
 
-
-
-
-
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                progressBar.setVisibility(View.VISIBLE);
-                recyclerView.setVisibility(View.GONE);
+
                 if(t1==1){
                     retriveTodayData(0);
 
@@ -242,6 +245,7 @@ public class NewBooksFragment extends Fragment  {
             }
         });
 
+        retriveTodayData(0);
         try {
             FirebaseDatabase.getInstance().getReference("Ads Control")
                     .addValueEventListener(new ValueEventListener() {
@@ -271,7 +275,8 @@ public class NewBooksFragment extends Fragment  {
                         }
                     });
 
-        }catch (Exception e){
+        }
+        catch (Exception e){
             cardView.setVisibility(View.GONE);
 
         }
@@ -284,10 +289,15 @@ public class NewBooksFragment extends Fragment  {
     }
 
     private void retriveTodayData(int num) {
+        progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(View.GONE);
+
         noNewBook.setVisibility(View.GONE);
         bookPostAdapter.setViewTypeToShow(1);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
         recyclerView.setAdapter(bookPostAdapter);
+        recyclerView.setHasFixedSize(true);
+
         //start date
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DAY_OF_YEAR, -num);
@@ -298,13 +308,16 @@ public class NewBooksFragment extends Fragment  {
         FirebaseDatabase.getInstance().getReference("Book Details").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
                 BookModel bookPostModel;
                 if(snapshot.exists()){
                     bookList.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         bookPostModel = dataSnapshot.getValue(BookModel.class);
                         if (bookPostModel != null && bookPostModel.getBookPostDate().equals(date)) {
-                            if(bookList.size()<100){
+                            if(bookList.size()<180){
+
                                 bookList.add(bookPostModel);
                             }
                         }
@@ -351,30 +364,41 @@ public class NewBooksFragment extends Fragment  {
         FirebaseDatabase.getInstance().getReference("Book Details").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
                 BookModel bookPostModel;
+                ArrayList<BookModel> bookListAll = new ArrayList<>();
                 if(snapshot.exists()){
                     bookList.clear();
+                    bookListAll.clear();
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         bookPostModel = dataSnapshot.getValue(BookModel.class);
                         if (bookPostModel != null && isDateInRange(bookPostModel.getBookPostDate(),startDate)) {
-                            if(bookList.size()<100){
-                                bookList.add(bookPostModel);
-                            }
+                                bookListAll.add(bookPostModel);
+
                         }
 
                     }
 
                 }
-                bookPostAdapter.notifyDataSetChanged();
+
+                Collections.shuffle(bookListAll);
+                for (int i = 0; i < Math.min(150, bookListAll.size()); i++) {
+                    bookList.add(bookListAll.get(i));
+                }
+
                 recyclerView.setVisibility(View.VISIBLE);
                 progressBar.setVisibility(View.GONE);
-                Collections.shuffle(bookList);
+
+
                 if(bookList.size()==0){
                     noNewBook.setVisibility(View.VISIBLE);
                 }
                 else {
                     noNewBook.setVisibility(View.GONE);
                 }
+                bookPostAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -418,12 +442,14 @@ public class NewBooksFragment extends Fragment  {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.exists()) {
                             for (DataSnapshot data : snapshot.getChildren()) {
+
                                 remoteimages.add(new SlideModel(
                                         data.child("image").getValue().toString(),
                                         data.child("title").getValue().toString(),
                                         ScaleTypes.FIT));
                                 //  Toast.makeText(MainActivity.this, ""+data.child("siteUrl").getValue(String.class),Toast.LENGTH_SHORT).show();
                                 remoteimages1.add((String) data.child("siteUrl").getValue());
+
                             }
                             // Set the image list and click listener outside the loop
                             imageSlider.setImageList(remoteimages, ScaleTypes.FIT);

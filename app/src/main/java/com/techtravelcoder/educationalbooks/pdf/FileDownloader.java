@@ -1,140 +1,105 @@
 package com.techtravelcoder.educationalbooks.pdf;
 
-import android.app.ProgressDialog;
+import android.app.DownloadManager;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Environment;
+import android.util.Log;
 
-import androidx.core.content.ContextCompat;
+import com.techtravelcoder.educationalbooks.pdf.PDFShowActivity;
 
-import com.techtravelcoder.educationalbooks.R;
-
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class FileDownloader {
 
     public static void downloadFile(Context context, String fileUrl, String fileName, DownloadListener listener) {
-        new DownloadFileTask(context, fileName, listener).execute(fileUrl);
+        try {
+            // Create a DownloadManager.Request
+            Uri uri = Uri.parse(fileUrl);
+            DownloadManager.Request request = new DownloadManager.Request(uri);
+
+            // Set download preferences
+            request.setTitle(fileName);
+            request.setDescription("Downloading...");
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+
+            // Ensure the Downloads/Pintu directory exists
+            File directory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "UPBH");
+            if (!directory.exists()) {
+                directory.mkdirs();  // Create the directory if it doesn't exist
+            }
+
+            // Set the destination for the downloaded file
+            File file = new File(directory, fileName);
+            // Use setDestinationUri to specify the full path
+            request.setDestinationUri(Uri.fromFile(file));
+
+            // Allow download over mobile data and Wi-Fi, disable roaming
+            request.setAllowedOverMetered(true);
+            request.setAllowedOverRoaming(false); // Disable downloads during roaming
+
+            // Enqueue the download
+            DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+            long downloadId = downloadManager.enqueue(request);
+
+            // Monitor the download progress in a separate thread
+            new Thread(() -> {
+                boolean downloading = true;
+                while (downloading) {
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(downloadId);
+                    Cursor cursor = downloadManager.query(query);
+
+                    if (cursor != null && cursor.moveToFirst()) {
+                        int status = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_STATUS));
+                        if (status == DownloadManager.STATUS_SUCCESSFUL) {
+                            downloading = false;
+
+                            // Post download complete to the main thread
+                            ((PDFShowActivity) context).runOnUiThread(() -> {
+                                listener.onDownloadComplete(file);
+                            });
+                        } else if (status == DownloadManager.STATUS_FAILED) {
+                            int reason = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_REASON));
+                            //Log.e("DownloadManager", "Download failed, reason: " + reason);
+                            downloading = false;
+
+                            // Post download failed to the main thread
+                            ((PDFShowActivity) context).runOnUiThread(() -> {
+                                listener.onDownloadFailed(new Exception("Download failed: " + reason));
+                            });
+                        }
+
+                        // Get download progress
+                        int totalBytes = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_TOTAL_SIZE_BYTES));
+                        int downloadedBytes = cursor.getInt(cursor.getColumnIndex(DownloadManager.COLUMN_BYTES_DOWNLOADED_SO_FAR));
+                        if (totalBytes > 0) {
+                            int progress = (int) (downloadedBytes * 100L / totalBytes);
+                            // You can update the progress bar here if needed
+                        }
+                    }
+
+                    if (cursor != null) {
+                        cursor.close();
+                    }
+
+                    // Sleep briefly to avoid busy-waiting
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        Log.e("DownloadTask", "Interrupted while sleeping", e);
+                    }
+                }
+            }).start();
+        } catch (Exception e) {
+            Log.e("FileDownloader", "Error in downloading file", e);
+            ((PDFShowActivity) context).runOnUiThread(() -> listener.onDownloadFailed(e));
+        }
     }
 
     public interface DownloadListener {
         void onDownloadComplete(File file);
         void onDownloadFailed(Exception e);
-    }
-
-    private static class DownloadFileTask extends AsyncTask<String, Integer, File> {
-        private Context context;
-        private String fileName;
-        private DownloadListener listener;
-        private Exception exception;
-        private ProgressDialog progressDialog;
-
-        public DownloadFileTask(Context context, String fileName, DownloadListener listener) {
-            this.context = context;
-            this.fileName = fileName;
-            this.listener = listener;
-            this.progressDialog = new ProgressDialog(context);
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            progressDialog.setTitle("Downloading Books !!");
-            progressDialog.setMessage("First time downloading books takes some times.");
-            progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            progressDialog.show();
-            progressDialog.setCancelable(false);
-            Drawable drawable = ContextCompat.getDrawable(context, R.drawable.alert_back);
-            if (progressDialog.getWindow() != null) {
-                progressDialog.getWindow().setBackgroundDrawable(drawable);
-            }
-
-
-        }
-
-        @Override
-        protected File doInBackground(String... urls) {
-            String fileUrl = urls[0];
-            InputStream input = null;
-            FileOutputStream output = null;
-            HttpURLConnection connection = null;
-            try {
-                URL url = new URL(fileUrl);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.connect();
-
-                if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
-                    throw new Exception("Server returned HTTP " + connection.getResponseCode() + " " + connection.getResponseMessage());
-                }
-
-                int fileLength = connection.getContentLength();
-
-                input = new BufferedInputStream(connection.getInputStream());
-                File directory = new File(context.getFilesDir(), "Pintu");
-                if (!directory.exists()) {
-                    directory.mkdirs();
-                }
-                File file = new File(directory, fileName);
-                output = new FileOutputStream(file);
-
-                byte[] data = new byte[4096];
-                long total = 0;
-                int count;
-                while ((count = input.read(data)) != -1) {
-                    if (isCancelled()) {
-                        input.close();
-                        return null;
-                    }
-                    total += count;
-                    if (fileLength > 0) {
-                        publishProgress((int) (total * 100 / fileLength));
-                    }
-                    output.write(data, 0, count);
-                }
-
-                return file;
-            } catch (Exception e) {
-                this.exception = e;
-                return null;
-            } finally {
-                try {
-                    if (input != null) {
-                        input.close();
-                    }
-                    if (output != null) {
-                        output.close();
-                    }
-                    if (connection != null) {
-                        connection.disconnect();
-                    }
-                } catch (Exception ignored) {}
-            }
-        }
-
-        @Override
-        protected void onProgressUpdate(Integer... progress) {
-            super.onProgressUpdate(progress);
-            if (progressDialog.isIndeterminate()) {
-                progressDialog.setIndeterminate(false);
-            }
-            progressDialog.setProgress(progress[0]);
-        }
-
-        @Override
-        protected void onPostExecute(File file) {
-            progressDialog.dismiss();
-            if (file != null) {
-                listener.onDownloadComplete(file);
-
-            } else {
-
-                listener.onDownloadFailed(exception);
-            }
-        }
     }
 }

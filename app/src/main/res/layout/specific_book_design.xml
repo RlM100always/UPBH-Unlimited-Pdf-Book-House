@@ -2,9 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="9dp"
+    android:padding="7dp"
     android:foreground="@drawable/fore_back"
-    android:layout_margin="5dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     android:background="@drawable/specific_back"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -14,20 +17,26 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.imageview.ShapeableImageView
-            app:strokeColor="#827D7D"
-            app:strokeWidth="0.3dp"
-            android:background="@drawable/loading"
-            android:id="@+id/book_image_id"
-            android:layout_width="130dp"
-            android:layout_height="155dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/loading"
-            app:shapeAppearanceOverlay="@style/CornerCut"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView
+                android:padding="1.5dp"
+                android:background="@drawable/loading"
+                android:id="@+id/book_image_id"
+                android:layout_width="135dp"
+                android:layout_height="165dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/loading"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+        </LinearLayout>
+
 
 
         <LinearLayout
-            android:layout_marginLeft="6dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -47,6 +56,27 @@
 
 
             <TextView
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:visibility="gone"
+                android:id="@+id/book_status_id"
+                android:layout_gravity="left"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="18dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:background="@drawable/edit_text_background"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Available"
+                android:textColor="@color/c1"
+                android:textSize="12dp"
+                />
+            <TextView
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/baseline_menu_book_24"
@@ -60,29 +90,10 @@
                 android:textColor="?attr/colorSecondary"
                 android:textSize="13dp"
                 />
-            <TextView
-                android:layout_marginTop="3dp"
-                android:visibility="gone"
-                android:id="@+id/book_status_id"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"
-                android:background="@drawable/edit_text_background"
-                android:textStyle="bold"
-                android:maxLines="2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Available"
-                android:textColor="@color/c1"
-                android:textSize="12dp"
-                />
+
 
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -91,7 +102,10 @@
                     android:id="@+id/book_pageno_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"
                     android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:maxLines="2"
@@ -106,8 +120,10 @@
                     android:id="@+id/book_mb_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
@@ -121,7 +137,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -130,8 +146,10 @@
                     android:id="@+id/book_type_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -145,8 +163,10 @@
                     android:id="@+id/book_language_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"

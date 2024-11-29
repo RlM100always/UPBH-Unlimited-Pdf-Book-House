@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#03081A</color>
+    <color name="white">#FDFEFE</color>//FF80AB //FFFFFF
+    <color name="blackwhite">#FDFEFE</color>
+    <color name="threeitembackcolor">#2979FF</color>
+    <color name="c1">#54A101</color>
+    <color name="c2">#EBC606</color>
+    <color name="c3">#AA00FF</color>
+    <color name="c4">#FF0217</color>
+    <color name="c5">#70BE1B</color>
+
+    <color name="icon_color">@color/black</color>
+    <color name="icon_color1">#DDDDDD</color>//F2F4F6
+    <color name="back_color1">#FFFFFF</color>//CDCBCB
+    <color name="back_color2">#FAFAFA</color>//CDCBCB
+    <color name="back">#FBFBFD</color>
+    <color name="subback">#7B7B7B</color>
+</resources>

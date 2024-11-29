@@ -10,9 +10,13 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
@@ -31,7 +35,8 @@ import java.util.List;
 
 public class BlankCategoryFragment extends Fragment {
 
-    private SearchView searchView;
+
+    private EditText editText;
     private RecyclerView recyclerView;
     private ArrayList<BookCategoryModel> bookCategoryList;
     private BookCategoryAdapter bookCategoryAdapter;
@@ -39,7 +44,6 @@ public class BlankCategoryFragment extends Fragment {
     private ProgressBar progressBar;
     private LinearLayout layout;
     public BlankCategoryFragment() {
-        // Required empty public constructor
     }
 
 
@@ -50,10 +54,9 @@ public class BlankCategoryFragment extends Fragment {
 
         View view =inflater.inflate(R.layout.fragment_blank_category, container, false);
         recyclerView=view.findViewById(R.id.new_category_recyclerview_id);
-        searchView=view.findViewById(R.id.book_categoyr_searhc);
         progressBar=view.findViewById(R.id.progressBar_category);
         layout=view.findViewById(R.id.category_no_item);
-        progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
+        editText=view.findViewById(R.id.book_categoyr_searhc_edtext);
 
         swipeRefreshLayout=view.findViewById(R.id.swipe_refresh_layout_category);
         retriveBookCategoryDetailsData();
@@ -61,22 +64,31 @@ public class BlankCategoryFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                editText.setText("");
                 retriveBookCategoryDetailsData();
 
             }
         });
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        editText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                searchList(newText);
-                return true;
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
             }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                searchList(s.toString());
+            }
+
         });
+
+
         return view;
     }
 
@@ -86,9 +98,16 @@ public class BlankCategoryFragment extends Fragment {
         bookCategoryAdapter=new BookCategoryAdapter(getContext(),bookCategoryList);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),1));
         recyclerView.setAdapter(bookCategoryAdapter);
+        recyclerView.setHasFixedSize(true);
+
         FirebaseDatabase.getInstance().getReference("Book Category").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
+
+
                 bookCategoryList.clear();
                 BookCategoryModel bookCategoryModel;
                 if(snapshot.exists()){
@@ -119,10 +138,10 @@ public class BlankCategoryFragment extends Fragment {
 
     private void searchList(String query) {
         List<BookCategoryModel> filteredList = new ArrayList<>();
-        String queryWithoutSpaces = query.replaceAll("\\s+", "").toLowerCase(); // Remove spaces from query
+        String queryWithoutSpaces = query.replaceAll("[/><:{}`+=*.||?()$#%!\\-,@&_\\n\\s]", "").toLowerCase();
 
         for (BookCategoryModel obj : bookCategoryList) {
-            String objStringWithoutSpaces = obj.toString().replaceAll("\\s+", "").toLowerCase(); // Remove spaces from object
+            String objStringWithoutSpaces = obj.toString().replaceAll("[/><:{}`+=*.||?()$#%!\\-,@&_\\n\\s]", "").toLowerCase();
 
             if (objStringWithoutSpaces.contains(queryWithoutSpaces)) {
                 filteredList.add(obj);

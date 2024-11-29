@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back"
+
+    tools:context=".activity.GuideLineDetailsActivity">
+    <LinearLayout
+
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/llg1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n🎤🎤 Storage Permission Guideline"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\nSTEP 1 : \n"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/img1"
+                android:layout_width="wrap_content"
+                android:layout_height="680dp"/>
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\nSTEP 2 :\n"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/img2"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"/>
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\nSTEP 3 : \n"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/img3"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/llg2"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n🎤🎤 Download Guideline"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:textColor="@color/icon_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="\n**For Small File : \n"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:padding="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/img4"
+                android:layout_width="match_parent"
+                android:layout_height="720dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/llg3"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n🎤🎤 Download Guideline"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/icon_color"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="\n **For Large File"
+                android:textSize="17dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:padding="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/l1"
+                android:layout_width="match_parent"
+                android:layout_height="720dp"/>
+            <ImageView
+                android:padding="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/l2"
+                android:layout_width="match_parent"
+                android:layout_height="720dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:visibility="gone"
+            android:id="@+id/llg4"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n🎤🎤 After Pressing YES all storage Data (Download => UPBH ) will be deleted like this 👇👇"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+
+            <ImageView
+                android:padding="5dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/d1"
+                android:layout_width="match_parent"
+                android:layout_height="690dp"/>
+            <ImageView
+                android:padding="5dp"
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/d2"
+                android:layout_width="match_parent"
+                android:layout_height="690dp"/>
+
+            <TextView
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\nℹ️ NOTE : \n\n** If You Remove Cache or Uninstall App \n** And then Again Download this App\n** You May Face Problem on Offline Book Access \n\n=> To Solve this Problem\nRead 👇👇"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginBottom="15dp"
+                android:id="@+id/see_here_id"
+                android:textColor="#1A4BFD"
+                android:textStyle="bold"
+                android:text="SEE HERE"
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/llg5"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n🎤🎤 After Clear App Data or Uninstall ,You May Face Offline Book Access Problem ??\n "
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+
+                android:scaleType="fitXY"
+
+                android:src="@drawable/o1"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"/>
+
+            <TextView
+                android:textColor="@color/icon_color"
+                android:textStyle="bold"
+                android:text="\n\n🎤🎤 If You Face This Problem . Follow Our Guidelines -> -> -> -> \n\n** STEP 1 : Go To Your Phone Storage(File Manager App)\n** STEP 2 : Select Download Folder\n** STEP 3 : Select UPBH Folder\n** STEP 4 : Delete All Files\n** STEP 5 : Again Download Book From Online \n\n✅✅ Problem Will be solve .\n\n** Follow Instruction 👇👇👇👇\n "
+                android:textSize="18dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/o2"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"/>
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/o3"
+                android:layout_width="match_parent"
+                android:layout_height="600dp"/>
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/o4"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

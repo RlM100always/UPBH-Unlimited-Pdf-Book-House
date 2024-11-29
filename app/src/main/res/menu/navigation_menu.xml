@@ -2,12 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Request For Book"
+    <item android:title="Request for Book"
         android:icon="@drawable/baseline_menu_book_24"
         android:id="@+id/menu_request_id"/>
-    <item android:title="Remove Ads"
-        android:icon="@drawable/baseline_ads_click_24"
-        android:id="@+id/menu_ads_free_id"/>
 
 
     <item android:title="Share and Care"
@@ -17,6 +14,10 @@
     <item android:title="Clear Data"
         android:icon="@drawable/baseline_clear_24"
         android:id="@+id/menu_clear_data_id"/>
+    <item android:title="Guideline"
+        android:icon="@drawable/baseline_storage_24"
+        android:id="@+id/menu_storage_id"/>
+
 
     <item android:title="Update App"
         android:icon="@drawable/baseline_update_24"

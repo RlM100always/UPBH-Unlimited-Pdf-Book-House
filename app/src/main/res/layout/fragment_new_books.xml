@@ -5,31 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorSurface"
+    android:background="@color/back"
     tools:context=".fragmentactivity.NewBooksFragment">
     <LinearLayout
-        android:layout_marginRight="7dp"
-        android:layout_marginLeft="7dp"
+       android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <TextView
-            android:id="@+id/last_7_day_id"
-            android:gravity="center"
-
-            android:layout_weight="1"
-            android:layout_margin="8dp"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"
-            android:background="@drawable/edit_text_background"
-            style="@style/MyToolbarTitleText"
-            android:layout_gravity="center"
-            android:textColor="?attr/colorSecondary"
-            android:textSize="13dp"
-            android:text="Last 10 Days"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
         <TextView
             android:textStyle="bold"
@@ -37,10 +18,10 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_margin="8dp"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
             android:background="@drawable/edit_text_background"
             android:layout_gravity="center"
             android:textColor="?attr/colorSecondary"
@@ -55,10 +36,10 @@
 
             android:textStyle="bold"
             android:layout_margin="8dp"
-            android:paddingBottom="3dp"
-            android:paddingTop="3dp"
-            android:paddingRight="8dp"
-            android:paddingLeft="8dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
             android:background="@drawable/edit_text_background"
             android:layout_gravity="center"
             android:textColor="?attr/colorSecondary"
@@ -66,6 +47,25 @@
             android:text="Yesterday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/last_7_day_id"
+            android:gravity="center"
+
+            android:layout_weight="1"
+            android:layout_margin="8dp"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:paddingBottom="4dp"
+            android:paddingTop="4dp"
+            android:background="@drawable/edit_text_background"
+            style="@style/MyToolbarTitleText"
+            android:layout_gravity="center"
+            android:textColor="?attr/colorSecondary"
+            android:textSize="13dp"
+            android:text="Last 10 Days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
 
 
@@ -88,13 +88,14 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
+                    android:foreground="@drawable/fore_back"
                     android:visibility="gone"
                     android:id="@+id/pimage_card_id"
                     app:cardBackgroundColor="?attr/colorSurface"
                     app:cardPreventCornerOverlap="true"
                     app:cardElevation="3dp"
-                    android:layout_margin="11dp"
-                    app:cardCornerRadius="12dp"
+                    android:layout_margin="8dp"
+                    app:cardCornerRadius="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 

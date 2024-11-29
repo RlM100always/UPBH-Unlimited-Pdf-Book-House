@@ -1,19 +1,36 @@
 package com.techtravelcoder.educationalbooks.model;
 
+import java.util.Map;
+
 public class BookModel {
     String bookName;
     String bookImageLink;
     String bookKey;
     String bookDriveurl;
     String bookCategoryKey;
-    String bookCategoryName;
+    String bookCategoryName,bookKeyWord;
     String bookPostDate;
     String bookMbSize,bookPageNo,bookCategoryType,bookPriceType,bookLanguageType;
+
+
+
 
 
     public BookModel(){
 
     }
+
+
+
+    public String getBookKeyWord() {
+        return bookKeyWord;
+    }
+
+    public void setBookKeyWord(String bookKeyWord) {
+        this.bookKeyWord = bookKeyWord;
+    }
+
+
 
     public String getBookMbSize() {
         return bookMbSize;
@@ -116,6 +133,13 @@ public class BookModel {
         return "BookModel{" +
                 "bookName='" + bookName + '\'' +
                 ", bookCategoryName='" + bookCategoryName + '\'' +
+                ", bookKeyWord='" + bookKeyWord + '\'' +
+                ", bookMbSize='" + bookMbSize + '\'' +
+                ", bookPageNo='" + bookPageNo + '\'' +
+                ", bookCategoryType='" + bookCategoryType + '\'' +
+                ", bookPriceType='" + bookPriceType + '\'' +
+                ", bookLanguageType='" + bookLanguageType + '\'' +
                 '}';
     }
+
 }

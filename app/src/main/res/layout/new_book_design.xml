@@ -2,10 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="9dp"
-    android:foreground="@drawable/fore_back"
-    android:layout_margin="8dp"
-    android:background="@drawable/specific_back"
+    android:layout_marginLeft="3dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="10dp"
+
+    android:layout_marginBottom="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -14,19 +15,30 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <com.google.android.material.imageview.ShapeableImageView
-            app:strokeColor="#827D7D"
-            app:strokeWidth="0.3dp"
-            android:background="@drawable/loading"
-            android:id="@+id/new_book_image_id"
-            android:layout_width="130dp"
-            android:layout_height="155dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/loading"
-            app:shapeAppearanceOverlay="@style/CornerCut"/>
+        <LinearLayout
+            android:foreground="@drawable/fore_back"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.google.android.material.imageview.ShapeableImageView
+
+                android:padding="1.5dp"
+                android:background="@drawable/loading"
+                android:id="@+id/new_book_image_id"
+                android:layout_width="135dp"
+                android:layout_height="168dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/loading"
+                app:shapeAppearanceOverlay="@style/CornerCut"/>
+
+        </LinearLayout>
 
 
         <LinearLayout
+            android:foreground="@drawable/fore_back"
+            android:padding="9dp"
+            android:background="@drawable/specific_back"
+
             android:layout_marginLeft="6dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -49,19 +61,6 @@
             <TextView
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
-                android:drawableLeft="@drawable/baseline_menu_book_24"
-                android:textStyle="bold"
-                android:layout_marginLeft="5dp"
-                android:maxLines="3"
-                android:id="@+id/new_book_name_id"                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Bangladesh Name of a Country .Where it is located"
-                android:textColor="?attr/colorSecondary"
-                android:textSize="13dp"
-                />
-            <TextView
-                android:drawablePadding="4dp"
-                android:gravity="center_vertical"
                 android:drawableLeft="@drawable/baseline_access_time_24"
                 android:textStyle="bold"
                 android:layout_marginLeft="5dp"
@@ -80,10 +79,10 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:paddingLeft="12dp"
-                android:paddingRight="12dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"                android:background="@drawable/edit_text_background"
+                android:paddingLeft="16dp"
+                android:paddingRight="18dp"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"              android:background="@drawable/edit_text_background"
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:layout_width="wrap_content"
@@ -94,7 +93,8 @@
                 />
 
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -103,8 +103,10 @@
                     android:id="@+id/new_book_page_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                  android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -118,8 +120,10 @@
                     android:id="@+id/new_book_mb_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                   android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
@@ -133,7 +137,8 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginBottom="3dp"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -142,8 +147,10 @@
                     android:id="@+id/new_book_type_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -157,8 +164,10 @@
                     android:id="@+id/new_book_language_id"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:padding="4dp"
-                    android:background="@drawable/edit_text_background"
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:paddingBottom="4dp"
+                    android:paddingTop="4dp"                   android:background="@drawable/edit_text_background"
                     android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
@@ -170,6 +179,20 @@
                     />
 
             </LinearLayout>
+            <TextView
+                android:drawablePadding="4dp"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/baseline_menu_book_24"
+                android:textStyle="bold"
+                android:layout_marginLeft="5dp"
+                android:maxLines="2"
+                android:id="@+id/new_book_name_id"                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bangladesh Name of a Country .Where it is located"
+                android:textColor="@color/icon_color"
+                android:textSize="13dp"
+                />
+
 
 
         </LinearLayout>
@@ -178,6 +201,7 @@
 
 
     </LinearLayout>
+
 
 
 </LinearLayout>

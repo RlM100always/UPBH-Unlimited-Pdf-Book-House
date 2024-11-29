@@ -5,21 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/colorSurface"
+    android:background="@color/back"
     tools:context=".fragmentactivity.BlankCategoryFragment">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/book_categoyr_searhc"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="30dp"
+    <EditText
+        android:id="@+id/book_categoyr_searhc_edtext"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="10dp"
+        android:paddingLeft="15dp"
+
+        android:hint="Search book category"
+
         android:background="@drawable/searchbar_background"
-        android:elevation="3dp"
-        app:iconifiedByDefault="false"
-        app:queryHint="Search book category"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
+
     <LinearLayout
         android:layout_marginTop="25dp"
         android:id="@+id/category_no_item"

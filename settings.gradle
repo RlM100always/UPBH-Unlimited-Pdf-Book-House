@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "EducationalBooks"
 include ':app'
+include ':admin'

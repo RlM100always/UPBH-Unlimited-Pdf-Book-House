@@ -2,23 +2,26 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:gravity="center_horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?attr/colorSurface"
+    android:background="@color/back"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragmentactivity.BookMarkFragment">
-    <androidx.appcompat.widget.SearchView
-        android:layout_marginTop="5dp"
-        android:id="@+id/bookmark_searchview_id"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+    <EditText
+        android:id="@+id/bookmark_search_ed"
+        android:drawableLeft="@drawable/baseline_search_24"
+        android:drawablePadding="10dp"
+        android:paddingLeft="15dp"
+
+        android:hint="Search bookmark book"
+
         android:background="@drawable/searchbar_background"
-        android:elevation="5dp"
-        app:iconifiedByDefault="false"
-        app:queryHint="Search bookmark book"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"/>
 
     <LinearLayout
         android:layout_marginTop="25dp"
@@ -68,6 +71,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            android:foregroundGravity="center"
             android:id="@+id/bookmark_recyclerview_id"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>

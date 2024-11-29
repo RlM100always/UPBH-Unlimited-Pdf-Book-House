@@ -1,10 +1,14 @@
 package com.techtravelcoder.educationalbooks.adapter;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.provider.Settings;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,8 +28,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.techtravelcoder.educationalbooks.R;
+import com.techtravelcoder.educationalbooks.activity.MainActivity;
+import com.techtravelcoder.educationalbooks.ads.ADSSetUp;
 import com.techtravelcoder.educationalbooks.fragmentactivity.BookMarkFragment;
 import com.techtravelcoder.educationalbooks.model.BookModel;
+import com.techtravelcoder.educationalbooks.pdf.DatabaseHelper;
 import com.techtravelcoder.educationalbooks.pdf.PDFShowActivity;
 
 import java.text.SimpleDateFormat;
@@ -33,7 +41,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>  {
 
     private Context context;
     private ArrayList<BookModel> list;
@@ -41,20 +49,22 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_1 = 1;
     private static final int VIEW_TYPE_2 = 2;
     private static final int VIEW_TYPE_3 = 3;
+    private DatabaseHelper databaseHelper;
+
 
 
 
     private int checker;
 
     public BookAdapter(Context context, ArrayList<BookModel> list, int checker) {
+        databaseHelper = new DatabaseHelper(context);
+
         this.context = context;
         this.list = list;
         this.viewTypeToShow = VIEW_TYPE_1;
         this.checker = checker;
 
-
     }
-
     public void setViewTypeToShow(int viewType) {
         this.viewTypeToShow = viewType;
         notifyDataSetChanged();
@@ -85,6 +95,7 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 throw new IllegalArgumentException("Invalid view type");
         }
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
@@ -163,30 +174,112 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
             }
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            ((BookViewHolder1) holder).itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                      if(FirebaseAuth.getInstance().getUid()!=null){
-                          if(!book.getBookPriceType().equals("Premium")){
-                              Intent intent=new Intent(context, PDFShowActivity.class);
-                              intent.putExtra("fUrl",book.getBookDriveurl());
-                              intent.putExtra("fName",book.getBookKey());
-                              intent.putExtra("bookName",book.getBookName());
-                              intent.putExtra("iUrl",book.getBookImageLink());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                              context.startActivity(intent);
-                          }else {
-                              Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
-                          }
-                      }else {
-                          Toast.makeText(context, "Please Login First", Toast.LENGTH_SHORT).show();
-                      }
+                    // Inflate the custom layout view
+                    LayoutInflater inflater = LayoutInflater.from(context);
+                    final View view = inflater.inflate(R.layout.on_off, null);
+                    TextView offline=view.findViewById(R.id.offline_id);
+                    TextView onliine=view.findViewById(R.id.online_id);
+
+                    builder.setView(view);
 
 
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    Drawable drawables = ContextCompat.getDrawable(context, R.drawable.alert_back);
+                    alertDialog.getWindow().setBackgroundDrawable(drawables);
+                    offline.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                                    if(book.getBookPriceType()!=null){
+                                        if(!book.getBookPriceType().equals("Premium")){
+
+                                            String fileUrl = "https://drive.google.com/uc?export=download&id="+book.getBookDriveurl();
+
+                                            if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+                                                ADSSetUp.adsType1(context);
+                                                Intent intent=new Intent(context, PDFShowActivity.class);
+                                                intent.putExtra("fUrl",book.getBookDriveurl());
+                                                intent.putExtra("fName",book.getBookKey());
+                                                intent.putExtra("bookName",book.getBookName());
+                                                intent.putExtra("iUrl",book.getBookImageLink());
+
+                                                context.startActivity(intent);
+                                            }
+                                            else {
+                                                Toast.makeText(context, "Please Download Books From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                        else {
+                                            Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    else {
+                                        String fileUrl = "https://drive.google.com/uc?export=download&id=" + book.getBookDriveurl();
+
+                                        if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+                                            ADSSetUp.adsType1(context);
+                                            Intent intent=new Intent(context, PDFShowActivity.class);
+                                            intent.putExtra("fUrl",book.getBookDriveurl());
+                                            intent.putExtra("fName",book.getBookKey());
+                                            intent.putExtra("bookName",book.getBookName());
+                                            intent.putExtra("iUrl",book.getBookImageLink());
+
+                                            context.startActivity(intent);
+                                        }
+                                        else {
+                                            Toast.makeText(context, "Please Download this Book From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                    alertDialog.dismiss();
+
+
+
+
+
+
+                        }
+                    });
+                    onliine.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                if(book.getBookPriceType()!=null){
+                                    if(!book.getBookPriceType().equals("Premium")){
+                                        ADSSetUp.adsType1(context);
+
+                                        Intent intent=new Intent(context, PDFShowActivity.class);
+                                        intent.putExtra("fUrl",book.getBookDriveurl());
+                                        intent.putExtra("fName",book.getBookKey());
+                                        intent.putExtra("bookName",book.getBookName());
+                                        intent.putExtra("iUrl",book.getBookImageLink());
+                                        intent.putExtra("check",2);
+
+                                        context.startActivity(intent);
+                                        alertDialog.dismiss();
+                                    }
+                                    else {
+                                        Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+
+                                    }
+                                }
+                                alertDialog.dismiss();
+
+
+                        }
+                    });
 
                 }
             });
+
+
 
 
 
@@ -232,37 +325,120 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 @Override
                 public void onClick(View v) {
 
-                    if(FirebaseAuth.getInstance().getUid()!=null){
-                        if(!book.getBookPriceType().equals("Premium")){
-                            Intent intent=new Intent(context, PDFShowActivity.class);
-                            intent.putExtra("fUrl",book.getBookDriveurl());
-                            intent.putExtra("fName",book.getBookKey());
-                            intent.putExtra("bookName",book.getBookName());
-                            intent.putExtra("iUrl",book.getBookImageLink());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                            context.startActivity(intent);
-                        }else {
-                            Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                    // Inflate the custom layout view
+                    LayoutInflater inflater = LayoutInflater.from(context);
+                    final View view = inflater.inflate(R.layout.on_off, null);
+                    TextView offline=view.findViewById(R.id.offline_id);
+                    TextView onliine=view.findViewById(R.id.online_id);
+
+                    builder.setView(view);
+
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    Drawable drawables = ContextCompat.getDrawable(context, R.drawable.alert_back);
+                    alertDialog.getWindow().setBackgroundDrawable(drawables);
+                    offline.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                    if(book.getBookPriceType()!=null){
+                                        if(!book.getBookPriceType().equals("Premium")){
+                                            String fileUrl = "https://drive.google.com/uc?export=download&id=" + book.getBookDriveurl();
+                                            if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+                                                ADSSetUp.adsType1(context);
+
+                                                Intent intent=new Intent(context, PDFShowActivity.class);
+                                                intent.putExtra("fUrl",book.getBookDriveurl());
+                                                intent.putExtra("fName",book.getBookKey());
+                                                intent.putExtra("bookName",book.getBookName());
+                                                intent.putExtra("iUrl",book.getBookImageLink());
+
+                                                context.startActivity(intent);
+
+                                            }
+                                            else {
+                                                Toast.makeText(context, "Please Download Books From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }
+                                        else {
+                                            Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    else {
+                                        String fileUrl = "https://drive.google.com/uc?export=download&id="+book.getBookDriveurl();
+
+                                        if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+                                            ADSSetUp.adsType1(context);
+                                            Intent intent=new Intent(context, PDFShowActivity.class);
+                                            intent.putExtra("fUrl",book.getBookDriveurl());
+                                            intent.putExtra("fName",book.getBookKey());
+                                            intent.putExtra("bookName",book.getBookName());
+                                            intent.putExtra("iUrl",book.getBookImageLink());
+                                            context.startActivity(intent);
+                                        }
+                                        else {
+                                            Toast.makeText(context, "Please Download Books From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                        }
+
+                                    }
+                                    alertDialog.dismiss();
+
+
+
+
                         }
+                    });
+                    onliine.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                             if(book.getBookPriceType()!=null){
+                                    if(!book.getBookPriceType().equals("Premium")){
+                                        ADSSetUp.adsType1(context);
 
-                    }else {
-                        Toast.makeText(context, "Please Login First", Toast.LENGTH_SHORT).show();
-                    }
+                                        Intent intent=new Intent(context, PDFShowActivity.class);
+                                        intent.putExtra("fUrl",book.getBookDriveurl());
+                                        intent.putExtra("fName",book.getBookKey());
+                                        intent.putExtra("bookName",book.getBookName());
+                                        intent.putExtra("iUrl",book.getBookImageLink());
+                                        intent.putExtra("check",2);
+
+                                        context.startActivity(intent);
+                                        alertDialog.dismiss();
+                                    }else {
+                                        Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+
+                                    }
+                                }
+                                alertDialog.dismiss();
 
 
+                        }
+                    });
 
                 }
             });
 
 
-            // Bind data for ViewHolder2
         }
         else if (holder instanceof BookViewHolder3) {
             // Bind data for ViewHolder3
+            if(position<=8){
+                ((BookViewHolder3) holder).serialno.setText("0"+String.valueOf(position+1));
+
+            }else {
+                ((BookViewHolder3) holder).serialno.setText(String.valueOf(position+1));
+
+            }
+
             ((BookViewHolder3) holder).delete2.setVisibility(View.VISIBLE);
             ((BookViewHolder3) holder).category2.setVisibility(View.VISIBLE);
             ((BookViewHolder3) holder).bookName2.setText(book.getBookName());
             ((BookViewHolder3) holder).category2.setText(book.getBookCategoryName());
+
 
 
             if(book.getBookPageNo()!=null  && !book.getBookPageNo().equals("")){
@@ -284,27 +460,105 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
             Glide.with(context).load(book.getBookImageLink()).into(((BookViewHolder3) holder).bookImage2);
+
             ((BookViewHolder3) holder).itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    if(FirebaseAuth.getInstance().getUid()!=null){
-                        if(!book.getBookPriceType().equals("Premium")){
-                            Intent intent=new Intent(context, PDFShowActivity.class);
-                            intent.putExtra("fUrl",book.getBookDriveurl());
-                            intent.putExtra("fName",book.getBookKey());
-                            intent.putExtra("bookName",book.getBookName());
-                            intent.putExtra("iUrl",book.getBookImageLink());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-                            context.startActivity(intent);
-                        }else {
-                            Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                    // Inflate the custom layout view
+                    LayoutInflater inflater = LayoutInflater.from(context);
+                    final View view = inflater.inflate(R.layout.on_off, null);
+                    TextView offline=view.findViewById(R.id.offline_id);
+                    TextView onliine=view.findViewById(R.id.online_id);
+
+                    builder.setView(view);
+
+
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
+                    Drawable drawables = ContextCompat.getDrawable(context, R.drawable.alert_back);
+                    alertDialog.getWindow().setBackgroundDrawable(drawables);
+                    offline.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                    if(book.getBookPriceType()!=null){
+                                        if(!book.getBookPriceType().equals("Premium")){
+                                            String fileUrl = "https://drive.google.com/uc?export=download&id=" + book.getBookDriveurl();
+
+
+                                            if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+
+                                                ADSSetUp.adsType1(context);
+
+                                                Intent intent=new Intent(context, PDFShowActivity.class);
+                                                intent.putExtra("fUrl",book.getBookDriveurl());
+                                                intent.putExtra("fName",book.getBookKey());
+                                                intent.putExtra("bookName",book.getBookName());
+                                                intent.putExtra("iUrl",book.getBookImageLink());
+
+                                                context.startActivity(intent);
+                                            }
+                                            else {
+                                                Toast.makeText(context, "Please Download this Book From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                            }
+
+                                        }else {
+                                            Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    else {
+                                        String fileUrl = "https://drive.google.com/uc?export=download&id=" + book.getBookDriveurl();
+
+                                        if(databaseHelper.fileExists(fileUrl) && !databaseHelper.getFilePath(fileUrl).equals("")){
+
+                                            ADSSetUp.adsType1(context);
+
+                                            Intent intent=new Intent(context, PDFShowActivity.class);
+                                            intent.putExtra("fUrl",book.getBookDriveurl());
+                                            intent.putExtra("fName",book.getBookKey());
+                                            intent.putExtra("bookName",book.getBookName());
+                                            intent.putExtra("iUrl",book.getBookImageLink());
+
+                                            context.startActivity(intent);
+                                        }else {
+                                            Toast.makeText(context, "Please Download this Book From Online First!!!!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    alertDialog.dismiss();
+
+
+
                         }
-                    }else {
-                        Toast.makeText(context, "Please Login First", Toast.LENGTH_SHORT).show();
-                    }
+                    });
+                    onliine.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                                if(book.getBookPriceType()!=null){
+                                    if(!book.getBookPriceType().equals("Premium")){
+                                        ADSSetUp.adsType1(context);
+
+                                        Intent intent=new Intent(context, PDFShowActivity.class);
+                                        intent.putExtra("fUrl",book.getBookDriveurl());
+                                        intent.putExtra("fName",book.getBookKey());
+                                        intent.putExtra("bookName",book.getBookName());
+                                        intent.putExtra("iUrl",book.getBookImageLink());
+                                        intent.putExtra("check",2);
+
+                                        context.startActivity(intent);
+                                        alertDialog.dismiss();
+                                    }else {
+                                        Toast.makeText(context, "This Book is Premium", Toast.LENGTH_SHORT).show();
+                                        alertDialog.dismiss();
+
+                                    }
+                                }
+                                alertDialog.dismiss();
 
 
+                        }
+                    });
 
                 }
             });
@@ -319,15 +573,13 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
-                            FirebaseDatabase.getInstance().getReference("Book Details").child(book.getBookKey()).child("bookmark")
-                                    .child(FirebaseAuth.getInstance().getUid()).setValue(false).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void unused) {
-                                            Toast.makeText(context, "Successfully remove from the BookMark List", Toast.LENGTH_SHORT).show();
+                            String stat=book.getBookKey()+book.getBookDriveurl();
+                            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                            String timestamp = dateFormat.format(new Date());
+                            databaseHelper.updateStatusAndTime(stat,"false",timestamp);
+                            Toast.makeText(context, "Successfully removed", Toast.LENGTH_SHORT).show();
 
 
-                                        }
-                                    });
 
                         }
                     });
@@ -406,7 +658,7 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static class BookViewHolder3 extends RecyclerView.ViewHolder {
 
         private ImageView bookImage2,delete2;
-        private TextView bookName2,category2 ;
+        private TextView bookName2,category2,serialno ;
         private TextView mb2,page2,type2,language2;
 
         public BookViewHolder3(@NonNull View itemView) {
@@ -422,6 +674,7 @@ public class BookAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             page2=itemView.findViewById(R.id.bookmark_page_id);
             type2=itemView.findViewById(R.id.bookmark_type_id);
             language2=itemView.findViewById(R.id.bookmark_language_id);
+            serialno=itemView.findViewById(R.id.bookmark_serial_no_id);
 
 
         }

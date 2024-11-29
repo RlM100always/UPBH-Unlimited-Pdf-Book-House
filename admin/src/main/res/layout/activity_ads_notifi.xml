@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".ads.AdsNotifiActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="Headline"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <EditText
+                android:id="@+id/notification_headline_id"
+                android:textColorHint="#676565"
+                android:textColor="@color/black"
+                android:paddingLeft="11dp"
+                android:hint="Enter headline"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/back"
+                android:maxLines="100000"
+                android:inputType="textMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"/>
+            <TextView
+                android:id="@+id/notification_submit_id"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/back"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="+ submit heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/ads_control_id"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:background="@drawable/back"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="+ Add Heading Ads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:id="@+id/Small_Ads1"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:background="@drawable/back"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="+ Small Ads1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:id="@+id/small_ads2"
+                    android:layout_gravity="center"
+                    android:padding="5dp"
+                    android:background="@drawable/back"
+                    android:textSize="18dp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="+ Small Ads 2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+
+            </LinearLayout>
+            <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="@color/back"
+                app:cardPreventCornerOverlap="true"
+                app:cardElevation="10dp"
+                android:layout_margin="7dp"
+                app:cardCornerRadius="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.denzcoskun.imageslider.ImageSlider
+                    android:id="@+id/image_slider"
+                    android:background="@drawable/image_buet"
+                    android:layout_width="match_parent"
+                    android:layout_height="215dp"
+                    app:iss_auto_cycle="true"
+                    app:iss_period="1000"
+                    app:iss_delay="1000"
+                    app:iss_text_align="CENTER"/>
+
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/edit_text_background"
+                android:weightSum="3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:text="HeadLine Status"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+                    <RadioGroup
+                        android:id="@+id/group_radio_headline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/headline_on_id"
+                            android:text="on"
+                            android:textSize="20sp"/>
+
+                        <RadioButton
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/headline_off_id"
+                            android:text="off"
+                            android:textSize="20sp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:text="Premimum Ads Status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioGroup
+                        android:id="@+id/radio_group_premium_ads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/premium_on_id"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="on"
+                            android:textSize="20sp"/>
+
+                        <RadioButton
+                            android:id="@+id/premium_off_id"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="off"
+                            android:textSize="20sp"/>
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textStyle="bold"
+                        android:layout_marginTop="5dp"
+                        android:textSize="15dp"
+                        android:textColor="@color/black"
+                        android:layout_marginLeft="5dp"
+                        android:text="Facebook/Admob ads Status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <RadioGroup
+                        android:id="@+id/radio_group_face_add_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:id="@+id/face_add_on_id"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="on"
+                            android:textSize="20sp"/>
+
+                        <RadioButton
+                            android:id="@+id/face_add_off_id"
+                            android:textColor="@color/black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="off"
+                            android:textSize="20sp"/>
+                    </RadioGroup>
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:id="@+id/update_ads_status"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:background="@drawable/back"
+                android:layout_marginTop="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:text="+ Update All Ads Status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+
+
+
+</LinearLayout>

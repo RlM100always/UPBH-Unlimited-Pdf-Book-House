@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_margin="6dp"
+    android:foreground="@drawable/fore_back"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:padding="2dp"
+        android:orientation="horizontal"
+        android:background="@drawable/specific_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/loading"
+            android:id="@+id/author_iamge"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/loading"
+            app:shapeAppearanceOverlay="@style/CornerCut1"/>
+        <TextView
+            android:layout_marginRight="3dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:maxLines="3"
+            android:id="@+id/author_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bangladesh "
+            android:textColor="@color/icon_color"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+
+
+
+
+
+
+</LinearLayout>

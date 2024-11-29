@@ -1,17 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
 
-    <color name="colorSelected">@color/threeitembackcolor</color>
+    <color name="colorSelected">#2DA804</color>
     <color name="colorUnselected">@color/black</color>
 
     <style name="Base.Theme.EducationalBooks" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">#FFFFFF</item>
         <!-- Secondary branding color. -->
         <item name="colorSecondary">@color/black</item>
         <!-- Surface color -->
-        <item name="colorSurface">@color/white</item>
+        <item name="colorSurface">#F8F7F7</item>//CDCBCB
         <item name="android:windowLightStatusBar">true</item>
 
     </style>
@@ -23,12 +23,37 @@
 
 
     </style>
+    <style name="MyToolbarTitleText1" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textStyle">bold</item>
 
 
-    <style name="CornerCut">
-        <item name="cornerSize">15%</item>
 
     </style>
 
+
+
+    <style name="AdsCut">
+        <item name="cornerSize">5%</item>
+
+    </style>
+
+    <style name="CornerCut">
+        <item name="cornerSize">5%</item>
+
+    </style>
+
+    <style name="CornerCut1">
+        <item name="cornerSize">5%</item>
+
+    </style>
+
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="colorControlNormal">@android:color/transparent</item> <!-- Sets underline color to transparent -->
+    </style>
+
+
     <style name="Theme.EducationalBooks" parent="Base.Theme.EducationalBooks" />
+
+
 </resources>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:padding="12dp"
     android:gravity="center"
-    android:background="?attr/colorSurface"
+    android:background="@color/back_color1"
     android:layout_height="match_parent">
     <ScrollView
         android:layout_width="match_parent"
@@ -13,11 +13,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <ImageView
-                android:layout_margin="10dp"
-                android:src="@drawable/settings_pic"
-                android:layout_width="match_parent"
-                android:layout_height="150dp"/>
 
             <LinearLayout
                 android:layout_marginTop="10dp"
@@ -119,7 +114,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginBottom="30dp"
+                android:layout_marginBottom="18dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"

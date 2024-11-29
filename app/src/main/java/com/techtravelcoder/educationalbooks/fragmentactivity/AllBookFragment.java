@@ -1,16 +1,6 @@
 package com.techtravelcoder.educationalbooks.fragmentactivity;
 
-import android.graphics.PorterDuff;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +9,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.core.widget.NestedScrollView;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,11 +41,11 @@ public class AllBookFragment extends Fragment {
     private BookAdapter bookPostAdapter;
     private NestedScrollView nestedScrollView;
     private String lastitemid;
-    private static int PAGE_SIZE=10;
+    private static int PAGE_SIZE=7;
     private Query query;
     private DatabaseReference databaseReference;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private ProgressBar progressBar,pSearch;
+    private ProgressBar progressBar;
     private LinearLayout linearLayout;
     private EditText editText;
     private Button button;
@@ -64,15 +61,20 @@ public class AllBookFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_all_book, container, false);
         recyclerView=view.findViewById(R.id.all_recyclerview_id);
         nestedScrollView=view.findViewById(R.id.all_item_nested_id);
-        editText=view.findViewById(R.id.search_input);
+        editText=view.findViewById(R.id.allbook_search_ed);
         button=view.findViewById(R.id.search_btn);
-        pSearch=view.findViewById(R.id.progress_search);
         searchRecyclerView=view.findViewById(R.id.all_search_recyclerview_id);
         swipeRefreshLayout=view.findViewById(R.id.all_swipe_refresh_id);
         progressBar=view.findViewById(R.id.home_progressbar);
-        progressBar.getIndeterminateDrawable().setColorFilter(getResources().getColor(R.color.threeitembackcolor), PorterDuff.Mode.SRC_IN);
 
         linearLayout=view.findViewById(R.id.home_ll_id);
+
+        int searchPlateId = editText.getContext().getResources().getIdentifier("android:id/search_plate", null, null);
+        View searchPlate = editText.findViewById(searchPlateId);
+
+        if (searchPlate != null) {
+            searchPlate.setBackgroundResource(android.R.color.transparent);
+        }
 
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -87,14 +89,15 @@ public class AllBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 searchList(editText.getText().toString());
-                button.setVisibility(View.GONE);
-                pSearch.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.VISIBLE);
+                linearLayout.setVisibility(View.GONE);
+
             }
         });
 
         progressBar.setVisibility(View.VISIBLE);
         Random random=new Random();
-        int num=random.nextInt(7);
+        int num=random.nextInt(21);
         fetchPostData(num);
 
         nestedScrollView.setOnScrollChangeListener((NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
@@ -117,7 +120,10 @@ public class AllBookFragment extends Fragment {
         bookPostAdapter = new BookAdapter(getContext(),bookList,1);
         bookPostAdapter.setViewTypeToShow(2);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+
         recyclerView.setAdapter(bookPostAdapter);
+
 
         if(num==0){
             query=databaseReference.limitToFirst(15);
@@ -206,8 +212,6 @@ public class AllBookFragment extends Fragment {
 
 
 
-
-
         if(query!=null){
         query.addValueEventListener(new ValueEventListener() {
             @Override
@@ -225,8 +229,11 @@ public class AllBookFragment extends Fragment {
                     }
 
                 }
-                if(bookList.size()==0){
+                if(bookList.isEmpty()){
                     linearLayout.setVisibility(View.VISIBLE);
+                }else {
+                    linearLayout.setVisibility(View.GONE);
+
                 }
                 Collections.shuffle(bookList);
                 bookPostAdapter.notifyDataSetChanged();
@@ -242,9 +249,6 @@ public class AllBookFragment extends Fragment {
         });
         }
     }
-
-
-
     public void retrivePaginateData(){
         Query nextPageQuery = databaseReference.orderByKey().startAfter(lastitemid).limitToFirst(PAGE_SIZE);
         nextPageQuery.addValueEventListener(new ValueEventListener() {
@@ -259,11 +263,14 @@ public class AllBookFragment extends Fragment {
                             bookList.add(bookPostModel);
                             lastitemid=bookPostModel.getBookKey();
                         }
-
                     }
 
                 }
+
+
                 bookPostAdapter.notifyDataSetChanged();
+
+
 
             }
 
@@ -282,6 +289,7 @@ public class AllBookFragment extends Fragment {
 
         // Initialize a new list to store the search results
         List<BookModel> searchResults = new ArrayList<>();
+        List<BookModel> searchResultsAll = new ArrayList<>();
         bookPostAdapter = new BookAdapter(getContext(), (ArrayList<BookModel>) searchResults,1);
         bookPostAdapter.setViewTypeToShow(2);
 
@@ -293,23 +301,30 @@ public class AllBookFragment extends Fragment {
         searchRecyclerView.setLayoutManager(searchLayoutManager);
 
         // Filter the data from Firebase
-        String queryWithoutSpaces = query.replaceAll("\\s+", "").toLowerCase();
+        String queryWithoutSpaces =  query.replaceAll("[/><:{}`+=*.||?()$#%!\\-,@&_\\n\\s]", "").toLowerCase();
         FirebaseDatabase.getInstance().getReference("Book Details").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                searchResults.clear(); // Clear previous search results
+                searchResults.clear();
+                searchResultsAll.size();
 
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     BookModel bookModel = dataSnapshot.getValue(BookModel.class);
                     if (bookModel != null) {
 
-                        String searchText=bookModel.getBookName()+bookModel.getBookCategoryName()+bookModel.getBookCategoryType()+bookModel.getBookPriceType()+bookModel.getBookLanguageType()+bookModel.getBookPageNo();
+                        String searchText=bookModel.getBookName()+bookModel.getBookCategoryName()+bookModel.getBookKeyWord()+bookModel.getBookCategoryType()+bookModel.getBookPriceType()+bookModel.getBookLanguageType()+bookModel.getBookPageNo();
 
-                        String objStringWithoutSpaces = searchText.replaceAll("\\s+", "").toLowerCase();
+                        String objStringWithoutSpaces = searchText.replaceAll("[/><:{}`+=*.||?()$#%!\\-,@&_\\n\\s]", "").toLowerCase();
                         if (objStringWithoutSpaces.contains(queryWithoutSpaces)) {
-                            searchResults.add(bookModel);
+
+                            searchResultsAll.add(bookModel);
+
                         }
                     }
+                }
+
+                for (int i = 0; i < Math.min(150, searchResultsAll.size()); i++) {
+                    searchResults.add(searchResultsAll.get(i));
                 }
 
                 if(searchResults.size()==0){
@@ -319,16 +334,13 @@ public class AllBookFragment extends Fragment {
 
                 }
 
-                button.setVisibility(View.VISIBLE);
-                pSearch.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 bookPostAdapter.notifyDataSetChanged(); // Notify adapter about data changes
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 linearLayout.setVisibility(View.VISIBLE);
-                button.setVisibility(View.VISIBLE);
-                pSearch.setVisibility(View.GONE);
                 Toast.makeText(getContext(), "Failed to fetch book: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

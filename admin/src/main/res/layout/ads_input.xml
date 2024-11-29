@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="Enter ads Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/enter_ads_title"
+        android:textColorHint="#676565"
+        android:textColor="@color/black"
+        android:paddingLeft="11dp"
+        android:hint="Enter ads title"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/back"
+        android:maxLines="100000"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"/>
+    <TextView
+        android:layout_marginTop="5dp"
+        android:textSize="18dp"
+        android:textColor="@color/black"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="Enter ads Image Link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/enter_ads_image_link"
+        android:textColorHint="#676565"
+        android:textColor="@color/black"
+        android:paddingLeft="11dp"
+        android:hint="Enter ads iamge link"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/back"
+        android:maxLines="1000000"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"/>
+    <EditText
+        android:id="@+id/enter_ads_key_link"
+        android:textColorHint="#676565"
+        android:textColor="@color/black"
+        android:paddingLeft="11dp"
+        android:hint="Enter site link "
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/back"
+        android:maxLines="10000000"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"/>
+
+    <EditText
+        android:id="@+id/enter_key_number"
+        android:textColorHint="#676565"
+        android:textColor="@color/black"
+        android:paddingLeft="11dp"
+        android:hint="Enter key number"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/back"
+        android:maxLines="100000"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"/>
+
+    <LinearLayout
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:fontFamily="serif"
+            android:layout_marginRight="30dp"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2.5"
+            android:gravity="center"
+            android:id="@+id/ads_submit_id"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/c1"
+            android:background="@drawable/edit_text_background"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Submit"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/ads_cancel"
+            android:fontFamily="serif"
+            android:layout_marginLeft="30dp"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2.5"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/c4"
+            android:background="@drawable/edit_text_background"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Cancel"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+
+</LinearLayout>

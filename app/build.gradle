@@ -18,15 +18,17 @@ android {
         applicationId "com.techtravelcoder.educationalbooks"
         minSdk 24
         targetSdk 34
-        versionCode 1
-        versionName "1.0"
+        versionCode 11
+        versionName "1.11"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+
     buildTypes {
         release {
             minifyEnabled false
+
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -71,14 +73,45 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
 
 
-//    //firebase auth
+   //firebase auth
     implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
     implementation("com.google.firebase:firebase-auth")
 
     //image slider
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
 
+
+    //one signal
+    //implementation 'com.onesignal:OneSignal:[5.0.0, 5.99.99]'
+    implementation('com.onesignal:OneSignal:5.1.17')
+
+
+
+    //ok
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+
+
+    implementation 'com.google.api-client:google-api-client:1.33.0'
+    implementation 'com.google.apis:google-api-services-drive:v3-rev20210928-1.32.1'
+    implementation 'com.google.auth:google-auth-library-oauth2-http:0.26.0'
+
+    //facebook
+    implementation 'androidx.annotation:annotation:1.0.0'
+
+    implementation 'com.facebook.android:audience-network-sdk:6.18.0'
+
+    //analytics
+    implementation 'com.google.firebase:firebase-analytics:22.1.2'  // Check for the latest version
+
+
+
+
+
+
 }
+
+apply plugin: 'com.google.gms.google-services'
+
 
 // Force consistent Kotlin versions
 configurations.all {
