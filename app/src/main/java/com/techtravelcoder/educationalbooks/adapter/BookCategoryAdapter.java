@@ -116,29 +116,7 @@ public class BookCategoryAdapter extends RecyclerView.Adapter<BookCategoryAdapte
 
     }
 
-    private void fetchBookDetails(@NonNull BookCategoryViewHolder holder, BookCategoryModel bookCategoryModel) {
-        FirebaseDatabase.getInstance().getReference("Book Details")
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        List<BookModel> bookNumber = new ArrayList<>(); // Local variable to avoid shared resource issues
-                        if (snapshot.exists()) {
-                            for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                BookModel bookPostModel = dataSnapshot.getValue(BookModel.class);
-                                if (bookPostModel != null && bookPostModel.getBookCategoryKey().equals(bookCategoryModel.getbCategoryKey())) {
-                                    bookNumber.add(bookPostModel);
-                                }
-                            }
-                            holder.availableBooks.setText(bookNumber.size() + " Books");
-                        }
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        // Handle the error
-                    }
-                });
-    }
     @Override
     public void onBindViewHolder(@NonNull BookCategoryViewHolder holder, int position) {
 
@@ -174,7 +152,6 @@ public class BookCategoryAdapter extends RecyclerView.Adapter<BookCategoryAdapte
             holder.cName.setText(bookCategoryModel.getbCategoryName());
             Glide.with(context).load(bookCategoryModel.getbCategoryImageLink()).into(holder.cImage);
 
-            fetchBookDetails(holder, bookCategoryModel);
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -243,7 +220,7 @@ public class BookCategoryAdapter extends RecyclerView.Adapter<BookCategoryAdapte
         //decalare global attribute
 
         private ImageView cImage,ads;
-        private TextView cName,availableBooks;
+        private TextView cName;
         private LinearLayout ll;
         public BookCategoryViewHolder(@NonNull View itemView,int viewType) {
             super(itemView);
@@ -251,7 +228,6 @@ public class BookCategoryAdapter extends RecyclerView.Adapter<BookCategoryAdapte
             if(viewType==TYPE_CATEGORY){
                 cImage=itemView.findViewById(R.id.lay_category_image_id);
                 cName=itemView.findViewById(R.id.lay_category_name_id);
-                availableBooks=itemView.findViewById(R.id.lay_category_total_book_id);
             }else {
                 ads=itemView.findViewById(R.id.ads_image);
                 ll=itemView.findViewById(R.id.ads_ll_id);

@@ -10,7 +10,6 @@
     <color name="c3">#AA00FF</color>
     <color name="c4">#FF0217</color>
     <color name="c5">#70BE1B</color>
-
     <color name="icon_color">@color/black</color>
     <color name="icon_color1">#FCDEDEE0</color>//F2F4F6
     <color name="back_color1">#FFFFFF</color>//CDCBCB

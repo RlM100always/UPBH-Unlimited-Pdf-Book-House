@@ -15,6 +15,7 @@
         android:layout_marginTop="4dp"
         android:orientation="horizontal">
         <EditText
+            android:fontFamily="@font/sans"
             android:paddingRight="10dp"
             android:id="@+id/allbook_search_ed"
             android:drawableLeft="@drawable/baseline_search_24"
@@ -33,6 +34,7 @@
 
 
         <Button
+            android:fontFamily="@font/sans_med"
             android:id="@+id/search_btn"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -60,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="80dp">
+        android:layout_marginBottom="8dp">
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:layout_margin="6dp"
+    android:layout_margin="4dp"
     android:foreground="@drawable/fore_back"
     android:gravity="center_horizontal"
     android:layout_width="match_parent"
@@ -24,6 +24,8 @@
             android:src="@drawable/loading"
             app:shapeAppearanceOverlay="@style/CornerCut1"/>
         <TextView
+            android:ellipsize="end"
+            android:fontFamily="@font/sans_med"
             android:layout_marginRight="3dp"
             android:gravity="center_vertical"
             android:layout_gravity="center_vertical"
@@ -34,7 +36,7 @@
             android:text="Bangladesh "
             android:textColor="@color/icon_color"
             android:textSize="14dp"
-            android:textStyle="bold" />
+            />
 
     </LinearLayout>
 

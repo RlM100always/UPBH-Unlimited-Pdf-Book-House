@@ -14,6 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="170dp"/>
         <TextView
+            android:fontFamily="@font/sans"
             style="@style/MyToolbarTitleText"
             android:layout_margin="5dp"
             android:textColor="?attr/colorSecondary"
@@ -23,6 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:fontFamily="@font/sans"
             android:layout_margin="5dp"
             android:textColor="?attr/colorSecondary"
             android:text="Are you sure to exit this application at this moment!!"
@@ -38,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans"
                 android:id="@+id/exit_rate_us_id"
                 android:shadowDx="1"
                 android:shadowDy="1"
@@ -57,6 +60,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:fontFamily="@font/sans"
                 android:id="@+id/exit_yes_id"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
@@ -77,6 +81,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans"
                 android:id="@+id/exit_no_id"
                 android:shadowDx="1"
                 android:shadowDy="1"

@@ -4,12 +4,14 @@
     android:orientation="vertical"
     android:layout_marginLeft="3dp"
     android:layout_marginRight="8dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginTop="4dp"
 
-    android:layout_marginBottom="10dp"
+
+    android:layout_marginBottom="4dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
+        android:elevation="3dp"
 
         android:gravity="center"
         android:orientation="horizontal"
@@ -26,7 +28,7 @@
                 android:background="@drawable/loading"
                 android:id="@+id/new_book_image_id"
                 android:layout_width="135dp"
-                android:layout_height="168dp"
+                android:layout_height="165dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/loading"
                 app:shapeAppearanceOverlay="@style/CornerCut"/>
@@ -45,8 +47,8 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:visibility="gone"
-                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:maxLines="2"
                 android:id="@+id/book_category_id"
@@ -59,6 +61,8 @@
 
 
             <TextView
+                android:fontFamily="@font/sans_med"
+                android:ellipsize="end"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/baseline_access_time_24"
@@ -74,6 +78,7 @@
                 />
 
             <TextView
+                android:fontFamily="@font/sans"
                 android:visibility="gone"
                 android:id="@+id/new_book_status_id"
                 android:layout_gravity="center"
@@ -83,7 +88,6 @@
                 android:paddingRight="18dp"
                 android:paddingBottom="4dp"
                 android:paddingTop="4dp"              android:background="@drawable/edit_text_background"
-                android:textStyle="bold"
                 android:maxLines="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/new_book_page_id"
                     android:gravity="center"
@@ -107,7 +112,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                  android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,6 +120,7 @@
                     android:textSize="11dp"
                     />
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/new_book_mb_id"
                     android:gravity="center"
@@ -124,7 +129,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                   android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -143,6 +147,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/new_book_type_id"
                     android:gravity="center"
@@ -151,7 +156,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -160,6 +164,7 @@
                     android:textSize="11dp"
                     />
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/new_book_language_id"
                     android:gravity="center"
@@ -168,7 +173,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                   android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -180,10 +184,11 @@
 
             </LinearLayout>
             <TextView
+                android:fontFamily="@font/sans_med"
+                android:ellipsize="end"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/baseline_menu_book_24"
-                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:maxLines="2"
                 android:id="@+id/new_book_name_id"                android:layout_width="match_parent"

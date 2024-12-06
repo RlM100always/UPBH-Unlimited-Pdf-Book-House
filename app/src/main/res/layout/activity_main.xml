@@ -52,12 +52,14 @@
         </LinearLayout>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            app:labelVisibilityMode="labeled"
             android:id="@+id/bottom_nav_id"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:background="@color/back"
+            app:labelVisibilityMode="labeled"
+            style="@style/CustomBottomNavigationView"
+
             app:itemIconTint="@drawable/item_select"
             app:itemTextColor="@drawable/item_select"
             app:menu="@menu/bottom_menu" />
@@ -66,11 +68,11 @@
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigation_view"
-
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:visibility="visible"
+        app:itemTextAppearance="@style/CustomMenuTextAppearance"
         app:headerLayout="@layout/header"
         app:itemIconTint="?attr/colorSecondary"
         app:itemTextColor="?attr/colorSecondary"

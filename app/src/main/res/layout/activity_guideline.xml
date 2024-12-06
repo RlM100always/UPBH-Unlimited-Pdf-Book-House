@@ -28,13 +28,13 @@
             <TextView
                 android:background="@drawable/round"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:textSize="18dp"
+                android:textSize="17dp"
                 android:textColor="@color/back_color1"
                 android:text="01"
                 android:layout_width="40dp"
@@ -46,13 +46,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans_med"
                     android:textColor="@color/icon_color"
-                    android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Storage Permission"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:textColor="@color/subback"
                     android:textSize="14.5dp"
                     android:text="Read more..."
@@ -74,10 +75,10 @@
             <TextView
                 android:background="@drawable/round"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="18dp"
@@ -92,13 +93,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans_med"
                     android:textColor="@color/icon_color"
-                    android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Small File Download Guide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:textColor="@color/subback"
                     android:textSize="14.5dp"
                     android:text="Read more..."
@@ -121,10 +123,10 @@
             <TextView
                 android:background="@drawable/round"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="18dp"
@@ -139,13 +141,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans_med"
                     android:textColor="@color/icon_color"
-                    android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Large File Download Guide"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:textColor="@color/subback"
                     android:textSize="14.5dp"
                     android:text="Read more..."
@@ -166,12 +169,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:background="@drawable/round"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="18dp"
@@ -186,13 +190,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans_med"
                     android:textColor="@color/icon_color"
-                    android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Clear Data"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:textColor="@color/subback"
                     android:textSize="14.5dp"
                     android:text="Read more..."
@@ -213,12 +218,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:background="@drawable/round"
                 android:layout_gravity="center_vertical"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="18dp"
@@ -233,13 +239,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans_med"
                     android:textColor="@color/icon_color"
-                    android:textStyle="bold"
                     android:textSize="17dp"
                     android:text="Offline Problem Fix"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:textColor="@color/subback"
                     android:textSize="14.5dp"
                     android:text="Read more..."

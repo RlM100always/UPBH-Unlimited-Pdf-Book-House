@@ -15,6 +15,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"/>
         <TextView
+            android:fontFamily="@font/sans_med"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="10dp"
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
+            android:fontFamily="@font/sans"
             android:layout_gravity="center"
             android:gravity="center"
             android:layout_margin="10dp"
@@ -43,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:id="@+id/yes_id"
                 android:layout_marginRight="30dp"
                 android:shadowDx="1"
@@ -62,6 +65,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:id="@+id/book_cancel_id"
                 android:layout_marginLeft="30dp"
                 android:shadowDx="1"

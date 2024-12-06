@@ -6,8 +6,8 @@
     android:foreground="@drawable/fore_back"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    android:layout_marginTop="8dp"
-    android:layout_marginBottom="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     android:background="@drawable/specific_back"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:visibility="gone"
-                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:maxLines="2"
                 android:id="@+id/book_category_id"
@@ -56,6 +56,7 @@
 
 
             <TextView
+                android:fontFamily="@font/sans"
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="3dp"
                 android:visibility="gone"
@@ -68,7 +69,6 @@
                 android:paddingBottom="4dp"
                 android:paddingTop="4dp"
                 android:background="@drawable/edit_text_background"
-                android:textStyle="bold"
                 android:maxLines="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,10 +77,11 @@
                 android:textSize="12dp"
                 />
             <TextView
+                android:fontFamily="@font/sans_med"
+                android:ellipsize="end"
                 android:drawablePadding="4dp"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/baseline_menu_book_24"
-                android:textStyle="bold"
                 android:layout_marginLeft="5dp"
                 android:maxLines="3"
                 android:id="@+id/book_name_id"
@@ -98,6 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/book_pageno_id"
                     android:gravity="center"
@@ -107,7 +109,6 @@
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"
                     android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,6 +117,7 @@
                     android:textSize="11dp"
                     />
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/book_mb_id"
                     android:gravity="center"
@@ -124,7 +126,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
                     android:layout_width="match_parent"
@@ -142,6 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/book_type_id"
                     android:gravity="center"
@@ -150,7 +152,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:maxLines="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -159,6 +160,7 @@
                     android:textSize="11dp"
                     />
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:visibility="gone"
                     android:id="@+id/book_language_id"
                     android:gravity="center"
@@ -167,7 +169,6 @@
                     android:paddingRight="2dp"
                     android:paddingBottom="4dp"
                     android:paddingTop="4dp"                    android:background="@drawable/edit_text_background"
-                    android:textStyle="bold"
                     android:layout_marginLeft="5dp"
                     android:maxLines="2"
                     android:layout_width="match_parent"

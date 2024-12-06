@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:fontFamily="@font/sans_med"
         android:gravity="center"
         android:maxLines="1"
         android:textColor="@color/icon_color"
@@ -17,7 +18,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:textSize="13dp"
-        android:textStyle="bold"
+        android:ellipsize="end"
         android:text="Romantic Poetbdin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

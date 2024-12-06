@@ -9,6 +9,7 @@
     android:orientation="vertical"
     tools:context=".fragmentactivity.BookMarkFragment">
     <EditText
+        android:fontFamily="@font/sans"
         android:id="@+id/bookmark_search_ed"
         android:drawableLeft="@drawable/baseline_search_24"
         android:drawablePadding="10dp"
@@ -67,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginBottom="80dp">
+        android:layout_marginBottom="8dp">
 
 
         <androidx.recyclerview.widget.RecyclerView

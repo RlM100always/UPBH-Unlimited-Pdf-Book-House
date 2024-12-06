@@ -4,8 +4,8 @@
     <shape>
 
         <solid android:color="@color/back"/>
-        <corners android:radius="2dp"/>
-        <stroke android:color="@color/icon_color1" android:width="1.35dp"/>
+        <corners android:radius="5dp"/>
+        <stroke android:color="@color/icon_color1" android:width="0.95dp"/>
     </shape>
 
 </inset>

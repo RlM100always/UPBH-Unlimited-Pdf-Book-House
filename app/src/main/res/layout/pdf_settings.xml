@@ -27,6 +27,7 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:fontFamily="@font/sans_med"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
@@ -43,6 +44,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <RadioButton
+                            android:fontFamily="@font/sans"
                             android:checked="true"
                             android:buttonTint="@color/radio_button_selector"
                             android:textColor="?attr/colorSecondary"
@@ -53,6 +55,7 @@
                             android:textSize="13sp"/>
 
                         <RadioButton
+                            android:fontFamily="@font/sans"
                             android:buttonTint="@color/c2"
                             android:textColor="?attr/colorSecondary"
                             android:layout_width="wrap_content"
@@ -69,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <TextView
-
+                        android:fontFamily="@font/sans_med"
                         android:textStyle="bold"
                         android:layout_marginTop="5dp"
                         android:textSize="18dp"
@@ -87,6 +90,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <RadioButton
+                            android:fontFamily="@font/sans"
                             android:buttonTint="@color/radio_button_selector"
                             android:id="@+id/light_id"
                             android:textColor="?attr/colorSecondary"
@@ -96,6 +100,7 @@
                             android:textSize="13sp"/>
 
                         <RadioButton
+                            android:fontFamily="@font/sans"
                             android:buttonTintMode="src_atop"
                             android:buttonTint="@color/radio_button_selector"
                             android:id="@+id/night_id"
@@ -120,7 +125,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/sans_med"
                     android:layout_marginRight="30dp"
                     android:shadowDx="1"
                     android:shadowDy="1"
@@ -140,7 +145,7 @@
                     android:layout_width="80dp"
                     android:layout_height="wrap_content"/>
                 <TextView
-                    android:fontFamily="serif"
+                    android:fontFamily="@font/sans_med"
                     android:layout_marginLeft="30dp"
                     android:shadowDx="1"
                     android:shadowDy="1"

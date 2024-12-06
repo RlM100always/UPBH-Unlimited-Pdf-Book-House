@@ -23,17 +23,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n🎤🎤 Storage Permission Guideline"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\nSTEP 1 : \n"
                 android:textSize="17dp"
                 android:layout_width="wrap_content"
@@ -46,9 +47,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="680dp"/>
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\nSTEP 2 :\n"
                 android:textSize="17dp"
                 android:layout_width="wrap_content"
@@ -61,9 +63,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="650dp"/>
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\nSTEP 3 : \n"
                 android:textSize="17dp"
                 android:layout_width="wrap_content"
@@ -84,17 +87,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n🎤🎤 Download Guideline"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:textColor="@color/icon_color"
                 android:gravity="center"
-                android:textStyle="bold"
                 android:text="\n**For Small File : \n"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
@@ -116,20 +121,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:gravity="center"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n🎤🎤 Download Guideline"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/icon_color"
                 android:gravity="center"
-                android:textStyle="bold"
                 android:text="\n **For Large File"
                 android:textSize="17dp"
                 android:layout_width="wrap_content"
@@ -160,8 +167,9 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n🎤🎤 After Pressing YES all storage Data (Download => UPBH ) will be deleted like this 👇👇"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
@@ -185,17 +193,19 @@
                 android:layout_height="690dp"/>
 
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\nℹ️ NOTE : \n\n** If You Remove Cache or Uninstall App \n** And then Again Download this App\n** You May Face Problem on Offline Book Access \n\n=> To Solve this Problem\nRead 👇👇"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:layout_marginBottom="15dp"
                 android:id="@+id/see_here_id"
                 android:textColor="#1A4BFD"
-                android:textStyle="bold"
                 android:text="SEE HERE"
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
@@ -213,8 +223,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
+
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n🎤🎤 After Clear App Data or Uninstall ,You May Face Offline Book Access Problem ??\n "
                 android:textSize="18dp"
                 android:layout_width="wrap_content"
@@ -228,8 +239,8 @@
                 android:layout_height="650dp"/>
 
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:textColor="@color/icon_color"
-                android:textStyle="bold"
                 android:text="\n\n🎤🎤 If You Face This Problem . Follow Our Guidelines -> -> -> -> \n\n** STEP 1 : Go To Your Phone Storage(File Manager App)\n** STEP 2 : Select Download Folder\n** STEP 3 : Select UPBH Folder\n** STEP 4 : Delete All Files\n** STEP 5 : Again Download Book From Online \n\n✅✅ Problem Will be solve .\n\n** Follow Instruction 👇👇👇👇\n "
                 android:textSize="18dp"
                 android:layout_width="wrap_content"

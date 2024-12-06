@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
     <color name="icon_color">@color/blackwhite</color>
-    <color name="icon_color1">#222299</color>
+    <color name="icon_color1">#333345</color>
 
 
-    <color name="back_color2">#051136</color>
+    <color name="back_color2">#03081A</color>
 
 
-    <color name="back_color1">#071139</color>
+    <color name="back_color1">#03081A</color>
     <color name="back">#03081A</color>
     <color name="subback">#DCDADA</color>
 

@@ -8,9 +8,9 @@
     android:foreground="@drawable/fore_back"
 
     android:layout_marginRight="8dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="4dp"
     android:background="@drawable/specific_back"
-    android:layout_marginBottom="8dp"
+    android:layout_marginBottom="4dp"
 
     android:orientation="vertical"
     >
@@ -51,7 +51,8 @@
                     android:layout_height="wrap_content"/>
 
                 <TextView
-
+                    android:ellipsize="end"
+                    android:fontFamily="@font/sans_med"
                     android:id="@+id/book_category_id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -70,7 +71,7 @@
                     android:text="Programming"
                     android:textColor="#F9058B"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                 />
 
             </LinearLayout>
 
@@ -83,6 +84,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:id="@+id/bookmark_page_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -96,7 +98,7 @@
                     android:paddingTop="4dp"                  android:text="100 Page"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    android:textStyle="bold"
+
                     android:visibility="gone" />
 
                 <TextView
@@ -114,7 +116,7 @@
                     android:paddingTop="4dp"                    android:text="10 Mb"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/sans"
                     android:visibility="gone" />
 
 
@@ -129,7 +131,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-
+                    android:fontFamily="@font/sans"
                     android:id="@+id/bookmark_type_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -143,10 +145,10 @@
                     android:paddingTop="4dp"                    android:text="Book"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    android:textStyle="bold"
                     android:visibility="gone" />
 
                 <TextView
+                    android:fontFamily="@font/sans"
                     android:id="@+id/bookmark_language_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -161,13 +163,15 @@
                     android:paddingTop="4dp"                   android:text="English"
                     android:textColor="?attr/colorSecondary"
                     android:textSize="11dp"
-                    android:textStyle="bold"
+
                     android:visibility="gone" />
 
 
             </LinearLayout>
 
             <TextView
+                android:ellipsize="end"
+                android:fontFamily="@font/sans_med"
                 android:id="@+id/book_name_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -181,7 +185,7 @@
                 android:text="Made in Bangladesh "
                 android:textColor="@color/icon_color"
                 android:textSize="14dp"
-                android:textStyle="bold" />
+             />
 
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -200,7 +204,7 @@
                     android:src="@drawable/loading"
                     app:shapeAppearanceOverlay="@style/CornerCut"
                     app:strokeColor="#827D7D"
-                 />
+                    />
 
             </LinearLayout>
 

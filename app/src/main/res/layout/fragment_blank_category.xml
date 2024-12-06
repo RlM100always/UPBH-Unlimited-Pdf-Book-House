@@ -9,6 +9,7 @@
     tools:context=".fragmentactivity.BlankCategoryFragment">
 
     <EditText
+        android:fontFamily="@font/sans"
         android:id="@+id/book_categoyr_searhc_edtext"
         android:drawableLeft="@drawable/baseline_search_24"
         android:drawablePadding="10dp"
@@ -69,7 +70,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="80dp">
+        android:layout_marginBottom="8dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/new_category_recyclerview_id"

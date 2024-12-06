@@ -3,8 +3,11 @@
 
 
     <item android:title="Request for Book"
+
         android:icon="@drawable/baseline_menu_book_24"
-        android:id="@+id/menu_request_id"/>
+        android:id="@+id/menu_request_id"
+
+        />
 
 
     <item android:title="Share and Care"

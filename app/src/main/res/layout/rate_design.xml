@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="170dp"/>
         <TextView
+            android:fontFamily="@font/sans_med"
             android:layout_gravity="center"
             style="@style/MyToolbarTitleText"
             android:layout_margin="8dp"
@@ -38,6 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:id="@+id/rating_submit_id"
                 android:layout_marginRight="30dp"
                 android:shadowDx="1"
@@ -57,6 +59,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:fontFamily="@font/sans_med"
                 android:id="@+id/rating_cancel_id"
                 android:layout_marginLeft="30dp"
                 android:shadowDx="1"
