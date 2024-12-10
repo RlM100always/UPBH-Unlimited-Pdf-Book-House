@@ -15,6 +15,8 @@
 
     <!-- Search EditText -->
     <EditText
+
+        android:fontFamily="@font/sans"
         android:id="@+id/book_post_search"
         android:drawableLeft="@drawable/baseline_search_24"
         android:drawablePadding="10dp"

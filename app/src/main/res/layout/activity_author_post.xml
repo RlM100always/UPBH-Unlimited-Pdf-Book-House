@@ -13,7 +13,8 @@
         app:layout_constraintBottom_toTopOf="@+id/author_search" />
 
     <EditText
-        android:fontFamily="@font/sans_med"
+
+        android:fontFamily="@font/sans"
         android:layout_marginBottom="2dp"
         android:id="@+id/author_search"
         android:drawableLeft="@drawable/baseline_search_24"
