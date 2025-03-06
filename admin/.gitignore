@@ -1,1 +1,44 @@
-/build
+/.idea/
+/*.iml
+/.gradle/
+/build/
+/local.properties
+
+# Ignore generated files
+/captures/
+/outputs/
+/*.apk
+/*.ap_
+/*.aab
+
+# Ignore Gradle files
+.gradle/
+/*/build/
+/out/
+/*.log
+
+# Ignore dependency caches
+/.idea/libraries/
+/.idea/modules.xml
+.idea/misc.xml
+.DS_Store
+
+# Ignore signing information
+/signingConfigs/
+/*.jks
+/*.keystore
+
+# Ignore Firebase and Google Services files
+/google-services.json
+/crashlytics-build.properties
+/firebase/
+
+# Ignore test and temp files
+/test-results/
+/tests/
+/*.tmp
+/.DS_Store
+*.swp
+
+# Ignore Android Jetpack Compose previews
+/.caches/
