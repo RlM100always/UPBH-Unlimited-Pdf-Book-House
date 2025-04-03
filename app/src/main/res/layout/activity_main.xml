@@ -60,7 +60,7 @@
             app:labelVisibilityMode="labeled"
             style="@style/CustomBottomNavigationView"
 
-            app:itemIconTint="@drawable/iem_select"
+            app:itemIconTint="@drawable/item_select"
             app:itemTextColor="@drawable/item_select"
             app:menu="@menu/bottom_menu" />
 
